@@ -1,0 +1,18 @@
+<div class='card' (click)="viewUserDetails()"> 
+	<div class='card-title'>{{userDetail.loginDetails.userName}} </div>
+	<div class='card-body'>
+		<div class='card-text'>
+			<div class="row no-gutters">
+				<div class="col">First Name</div>
+				<div class="col">{{userDetail.name.firstName}}</div>
+				<div class="w-100"></div>
+				<div class="col">Middle Name</div>
+				<div class="col">{{userDetail.name.middleName}}</div>
+				<div class="w-100"></div>
+				<div class="col">Last Name</div>
+				<div class="col">{{userDetail.name.lastName}}</div>
+				<div class="w-100"></div>
+			</div>
+		</div>
+	</div>
+</div>

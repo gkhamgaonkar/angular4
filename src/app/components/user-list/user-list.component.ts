@@ -1,15 +1,19 @@
-import {Component} from '@angular/core';
-import {UserDetails} from './model/userdetails'
+import { Component } from '@angular/core';
+import {UserDetails} from '../../model/userdetails'
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.css']
 })
-export class AppComponent {
+export class UserListComponent  {
 
-	userDetails : UserDetails[];
+  
+userDetails : UserDetails[];
+newUser : UserDetails;
+
 	constructor (){
+		this.newUser = UserDetails.createNewUser();
 
 	let datas = '[{"name":{"firstName": "Gunjan"  ,"title":"Mr",  "middleName" : "P" , "lastName":"Khamgaonkar"}, "loginDetails" : {"userName": "gunjank" , "password": "123"} , "roles" :[{"role":"DATA_ENTRY", "desc": "Data entry operator"},{"role":"REVIEWER","desc": "Content reviewer"}] , "userSex":"MALE" },'+
 		'{"name":{"title":"Mrs", "firstName": "Sancheti" , "middleName" : "G" , "lastName":"Khamgaonkar"}, "loginDetails" : {"userName": "sanchetiek" , "password": "456"} , "roles" :[{"role":"REVIEWER","desc": "Content reviewer"}] , "userSex":"FEMALE" }]';
@@ -20,6 +24,6 @@ export class AppComponent {
 	console.log(this.userDetails); 
 
 	}
-
+  
 
 }
