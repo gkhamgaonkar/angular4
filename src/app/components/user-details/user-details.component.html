@@ -1,5 +1,5 @@
-<div class='card' (click)="viewUserDetails()"> 
-	<div class='card-title'>{{userDetail.loginDetails.userName}} </div>
+<!-- <div class='card' > 
+	<div class='card-title'>{{userDetail.loginDetails.userName}}</div>
 	<div class='card-body'>
 		<div class='card-text'>
 			<div class="row no-gutters">
@@ -15,4 +15,31 @@
 			</div>
 		</div>
 	</div>
+</div>
+ -->
+
+<div class="col-xs-6" (click)="viewUserDetails()">
+   <div class="panel panel-info">
+      <div class="panel-heading">
+      	<div class="row">
+      	 <div class="col-xs-6">User name</div>
+         <div class="col-xs-6">{{userDetail.loginDetails.userName}}</div>
+     </div>
+      </div>
+      <div class="panel-body">
+         <div class="row">
+            <div class="col-xs-6">First Name</div>
+            <div class="col-xs-6">{{userDetail.name.firstName}}</div>
+         </div>
+         <div class="row">
+            <div class="col-xs-6">Middle Name</div>
+            <div class="col-xs-6">{{userDetail.name.middleName}}</div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">Last Name</div>
+            <div class="col-xs-6">{{userDetail.name.lastName}}</div>
+         </div>
+     
+      </div>
+   </div>
 </div>

@@ -5,17 +5,28 @@ import { FormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([{
+    	path:'users',
+    	component:	UserListComponent
+    },
+    {
+    	path:'',
+    	component:	LandingPageComponent
+    }
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]

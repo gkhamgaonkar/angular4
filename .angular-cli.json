@@ -20,7 +20,10 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "bootstrap.css"
+        "vendor/bootstrap/css/bootstrap.min.css",
+        "dist/css/sb-admin-2.css",
+        "vendor/metisMenu/metisMenu.min.css",
+        "vendor/font-awesome/css/font-awesome.min.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
