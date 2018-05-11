@@ -3,15 +3,15 @@ import { UserDetails } from '../../model/userdetails';
 
 @Component({
   selector: 'app-user-details',
-  templateUrl: './user-details.component.html',
-  styleUrls: ['./user-details.component.css']
+  templateUrl: './user-summary.component.html',
+  styleUrls: ['./user-summary.component.css']
 })
-export class UserDetailsComponent  {
+export class UserSummaryComponent  {
 
 	@Input()
 	userDetail : UserDetails;
 	@Output()
-	viewDetails : EventEmitter<UserDetails> = new EventEmitter()
+	viewDetails : EventEmitter<UserDetails> = new EventEmitter();
 	public viewUserDetails(){
 		this.viewDetails.emit(this.userDetail)
 	}

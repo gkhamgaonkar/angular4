@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router'
 import { FormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { UserListComponent } from './components/user-list/user-list.component';
-import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { UserSummaryComponent } from './components/user-summary/user-summary.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 
@@ -12,7 +12,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
   declarations: [
     AppComponent,
     UserListComponent,
-    UserDetailsComponent,
+    UserSummaryComponent,
     LandingPageComponent
   ],
   imports: [
