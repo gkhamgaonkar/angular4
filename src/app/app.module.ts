@@ -35,6 +35,10 @@ import {UserDetailsComponent} from './components/users/user-details/user-details
         component: UserDetailsComponent
       },
       {
+        path: 'users/:username/:edit',
+        component: UserDetailsComponent
+      },
+      {
         path: '',
         component: LandingPageComponent
       }

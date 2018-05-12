@@ -1,0 +1,36 @@
+<div class="page-header huge">User Details</div>
+
+
+<div class="form-row">
+  <div class="form-group col-md-12">
+    <label class="col-md-6">User Name</label>
+    <label class="col-md-6">{{userDetail.loginDetails.userName}}</label>
+  </div>
+  <div class="form-group col-md-2">
+    <label>Title</label>
+
+    <select class="form-control"
+            [(ngModel)]="userDetail.name.title"      >
+      <option *ngFor="let title of titles" [ngValue]="title">{{title}}</option>
+    </select>
+
+  </div>
+
+  <div class="form-group col-md-4">
+    <label>First Name</label>
+    <div *ngIf="!editPage"><p class="form-control-static">{{userDetail.name.firstName}}</p></div>
+    <div *ngIf="editPage"><input class="form-control" type="text" value={{userDetail.name.firstName}}/></div>
+  </div>
+  <div class="form-group col-md-2">
+    <label>Middle Name</label>
+    <div *ngIf="!editPage"><p class="form-control-static">{{userDetail.name.middleName}}</p></div>
+    <div *ngIf="editPage"><input class="form-control" type="text" value={{userDetail.name.middleName}}/></div>
+  </div>
+  <div class="form-group col-md-4">
+    <label>Last Name</label>
+    <div *ngIf="!editPage"><p class="form-control-static">{{userDetail.name.lastName}}</p></div>
+    <div *ngIf="editPage"><input class="form-control" type="text" value={{userDetail.name.lastName}}/></div>
+  </div>
+</div>
+
+

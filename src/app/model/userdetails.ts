@@ -5,16 +5,16 @@ export interface UserLoginDetails {
 	password : string;
 
 }
-enum Sex {
+export enum Sex {
 	MALE = 1,
 	FEMALE ,
 	OTHER
 }
 
-enum Title {
+export enum Title {
 	Mr,
 	Mrs,
-	Miss, 
+	Miss,
 	Dr,
 	Prof,
 	Master
@@ -41,7 +41,7 @@ export class UserDetails {
 	loginDetails : UserLoginDetails;
 	roles : Roles[];
 	userSex : Sex;
-	userPhoto : string; 
+	userPhoto : string;
 	dateOfBirth : Date;
 
 
@@ -72,17 +72,3 @@ export class UserDetails {
 
 }
 
-export class EnumEx {
-    static getNamesAndValues<T extends number>(e: any) {
-        return EnumEx.getNames(e).map(n => ({ name: n, value: e[n] as T }));
-    }
-    static getNames(e: any) {
-        return Object.keys(e).filter(k => typeof e[k] === "number") as string[];
-    }
-
-    static getValues<T extends number>(e: any) {
-        return Object.keys(e)
-            .map(k => e[k])
-            .filter(v => typeof v === "number") as T[];
-    }
-}

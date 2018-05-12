@@ -21,12 +21,12 @@ export class UserSummaryComponent {
   constructor(private  router: Router) {
   }
 
-  showUserDetails(userDetail: UserDetails) {
-    this.router.navigateByUrl("/users/" + userDetail.loginDetails.userName)
+  public showUserDetails(userDetail: UserDetails) {
+    this.router.navigateByUrl('/users/' + userDetail.loginDetails.userName)
 
   }
 
-  editUserDetails(userDetail: UserDetails) {
-    this.router.navigateByUrl("/users/" + userDetail.loginDetails.userName)
+  public editUserDetails(userDetail: UserDetails) {
+    this.router.navigateByUrl('/users/' + userDetail.loginDetails.userName + '/edit')
   }
 }
