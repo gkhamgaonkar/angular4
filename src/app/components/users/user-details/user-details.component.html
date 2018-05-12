@@ -9,8 +9,8 @@
   <div class="form-group col-md-2">
     <label>Title</label>
 
-    <select class="form-control"
-            [(ngModel)]="userDetail.name.title"      >
+    <select class="form-control" disabled="{{!editPage}}"
+            [(ngModel)]="userDetail.name.title">
       <option *ngFor="let title of titles" [ngValue]="title">{{title}}</option>
     </select>
 

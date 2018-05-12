@@ -1,16 +1,11 @@
-
-
-<div class="page-header huge">Registered users</div>
-<div *ngFor='let userDetail of userDetails'>
-	<app-user-summary [userDetail]='userDetail'>
-	</app-user-summary>
-</div>
-
-<div class="row">
-  <div class="col-lg-6">
-    <div class="panel-body">
+<div class="page-header">
+  <div class="huge"> Registered users
+    <div class="pull-right">
       <button type="button" class="btn btn-primary">Add new Users</button>
     </div>
   </div>
 </div>
-
+<div *ngFor='let userDetail of userDetails'>
+  <app-user-summary [userDetail]='userDetail'>
+  </app-user-summary>
+</div>
