@@ -1,0 +1,9 @@
+<!-- <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+	User List
+</a> -->
+
+<div class="page-header huge">Registered users</div>
+<div *ngFor='let userDetail of userDetails'>
+	<app-user-details [userDetail]='userDetail'>
+	</app-user-details>
+</div>

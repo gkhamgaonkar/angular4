@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {UserDetails} from '../../model/userdetails'
+import {UserDetails} from '../../../model/userdetails'
 
 @Component({
   selector: 'app-user-list',

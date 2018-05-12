@@ -1,5 +1,5 @@
 import { Component ,Input , Output, EventEmitter} from '@angular/core';
-import { UserDetails } from '../../model/userdetails';
+import { UserDetails } from '../../../model/userdetails';
 
 @Component({
   selector: 'app-user-details',
@@ -18,4 +18,7 @@ export class UserSummaryComponent  {
 
   constructor() { }
 
+  showUserDetails() {
+
+  }
 }

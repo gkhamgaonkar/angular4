@@ -30,6 +30,6 @@ export class LandingPageComponent  {
 
   showUserList() {
     console.log("asdf");
-    this.router.navigateByUrl("users")
+    this.router.navigateByUrl("users");
   }
 }
