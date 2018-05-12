@@ -1,9 +1,16 @@
-<!-- <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-	User List
-</a> -->
+
 
 <div class="page-header huge">Registered users</div>
 <div *ngFor='let userDetail of userDetails'>
-	<app-user-details [userDetail]='userDetail'>
-	</app-user-details>
+	<app-user-summary [userDetail]='userDetail'>
+	</app-user-summary>
 </div>
+
+<div class="row">
+  <div class="col-lg-6">
+    <div class="panel-body">
+      <button type="button" class="btn btn-primary">Add new Users</button>
+    </div>
+  </div>
+</div>
+
