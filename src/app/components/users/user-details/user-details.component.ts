@@ -29,20 +29,14 @@ export class UserDetailsComponent implements OnInit {
   ngOnInit(): void {
     // get param map from router
     this.route.paramMap.subscribe((params: ParamMap) => {
-      this.userDetail = this.findByUserName(params.get('username'));
+      this.userService.findByUserName(params.get('username')).then((userDetail=> this.userDetail = userDetail));
       this.editPage = params.get('edit') != null;
     });
     // get all users from user serive
     this.userService.getAllUsers().then((userDetails=> this.userDetails = userDetails));
   }
 
-  findByUserName(username: string): UserDetails {
-    for (let user of this.userDetails) {
-      if (user.loginDetails.userName === username)
-        return user;
-    }
-    return null;
-  }
+
 
 
   private getTitles() {
