@@ -10,6 +10,7 @@ import {HeaderComponent} from './components/common/header/header.component';
 import {MenuComponent} from './components/common/menu/menu.component';
 import {FooterComponent} from './components/common/footer/footer.component';
 import {UserDetailsComponent} from './components/users/user-details/user-details.component';
+import {UserService} from "./services/user.service";
 
 
 @NgModule({
@@ -44,7 +45,7 @@ import {UserDetailsComponent} from './components/users/user-details/user-details
       }
     ]),
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -4,6 +4,7 @@ import {Sex, UserDetails} from "../../../model/userdetails";
 import "rxjs/add/operator/switchMap";
 import {Title} from "../../../model/userdetails";
 import {EnumEx} from "../../../model/utils";
+import {UserService} from "../../../services/user.service";
 
 
 @Component({
@@ -19,23 +20,21 @@ export class UserDetailsComponent implements OnInit {
   titles: Title[];
   sex : Sex[];
 
-  constructor(private route: ActivatedRoute) {
-    let datas = '[{"name":{"firstName": "John"  ,"title":"Mr",  "middleName" : "P" , "lastName":"Doe"}, "loginDetails" : {"userName": "johnd" , "password": "123"} , "roles" :[{"role":"DATA_ENTRY", "desc": "Data entry operator"},{"role":"REVIEWER","desc": "Content reviewer"}] , "userSex":"MALE" },' +
-      '{"name":{"title":"Mrs", "firstName": "Susan" , "middleName" : "G" , "lastName":"Doe"}, "loginDetails" : {"userName": "susand" , "password": "456"} , "roles" :[{"role":"REVIEWER","desc": "Content reviewer"}] , "userSex":"FEMALE" },' +
-      '{"name":{"title":"Master", "firstName": "Dennis" , "middleName" : "G" , "lastName":"Doe"}, "loginDetails" : {"userName": "dennisd" , "password": "789"} , "roles" :[{"role":"REVIEWER","desc": "Content reviewer"}] , "userSex":"MALE" }]';
-    this.userDetails = JSON.parse(datas);
+  constructor(private route: ActivatedRoute ,private userService : UserService) {
+
     this.titles = this.getTitles();
     this.sex = this.getUserSex();
   }
 
   ngOnInit(): void {
+    // get param map from router
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.userDetail = this.findByUserName(params.get('username'));
       this.editPage = params.get('edit') != null;
     });
+    // get all users from user serive
+    this.userService.getAllUsers().then((userDetails=> this.userDetails = userDetails));
   }
-
-
 
   findByUserName(username: string): UserDetails {
     for (let user of this.userDetails) {
