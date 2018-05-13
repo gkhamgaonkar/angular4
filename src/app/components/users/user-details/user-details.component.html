@@ -1,36 +1,35 @@
 <div class="page-header huge">User Details</div>
 
-
-<div class="form-row">
-  <div class="form-group col-md-12">
-    <label class="col-md-6">User Name</label>
-    <label class="col-md-6">{{userDetail.loginDetails.userName}}</label>
+<div class="form-row  col-lg-6">
+  <div class="form-group">
+    <label>User Name</label>
+    <p class="form-control-static">{{userDetail.loginDetails.userName}}</p>
   </div>
-  <div class="form-group col-md-2">
-    <label>Title</label>
-
-    <select class="form-control" disabled="{{!editPage}}"
+  <div class="form-group">
+    <label for="idTitle">Title</label>
+    <select id="idTitle" *ngIf="editPage" class="form-control"
             [(ngModel)]="userDetail.name.title">
       <option *ngFor="let title of titles" [ngValue]="title">{{title}}</option>
     </select>
-
+    <p *ngIf="!editPage" class="form-control-static">{{userDetail.name.title}}</p>
   </div>
 
-  <div class="form-group col-md-4">
-    <label>First Name</label>
-    <div *ngIf="!editPage"><p class="form-control-static">{{userDetail.name.firstName}}</p></div>
-    <div *ngIf="editPage"><input class="form-control" type="text" value={{userDetail.name.firstName}}/></div>
+  <div class="form-group ">
+    <label for="idfName">First Name</label>
+    <input *ngIf="editPage" id="idfName" class="form-control" type="text" value={{userDetail.name.firstName}}/>
+    <p *ngIf="!editPage" class="form-control-static">{{userDetail.name.firstName}}</p>
   </div>
-  <div class="form-group col-md-2">
-    <label>Middle Name</label>
-    <div *ngIf="!editPage"><p class="form-control-static">{{userDetail.name.middleName}}</p></div>
-    <div *ngIf="editPage"><input class="form-control" type="text" value={{userDetail.name.middleName}}/></div>
+  <div class="form-group ">
+    <label  for="idmName">Middle Name</label>
+    <input class="form-control"  id="idmName"  *ngIf="editPage" type="text" value={{userDetail.name.middleName}}/>
+    <p *ngIf="!editPage" class="form-control-static">{{userDetail.name.middleName}}</p>
   </div>
-  <div class="form-group col-md-4">
-    <label>Last Name</label>
-    <div *ngIf="!editPage"><p class="form-control-static">{{userDetail.name.lastName}}</p></div>
-    <div *ngIf="editPage"><input class="form-control" type="text" value={{userDetail.name.lastName}}/></div>
+  <div class="form-group">
+    <label for="idSex">Sex</label>
+    <select id ="idSex" *ngIf="editPage" class="form-control"
+            [(ngModel)]="userDetail.userSex">
+      <option *ngFor="let userSex of sex" [ngValue]="userSex">{{userSex}}</option>
+    </select>
+    <p *ngIf="!editPage" class="form-control-static">{{userDetail.userSex}}</p>
   </div>
 </div>
-
-
