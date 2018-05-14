@@ -22,11 +22,11 @@ export class UserSummaryComponent {
   }
 
   public showUserDetails(userDetail: UserDetails) {
-    this.router.navigateByUrl('/users/' + userDetail.loginDetails.userName)
+    this.router.navigateByUrl('/users/view/' + userDetail.loginDetails.userName);
 
   }
 
   public editUserDetails(userDetail: UserDetails) {
-    this.router.navigateByUrl('/users/' + userDetail.loginDetails.userName + '/edit')
+    this.router.navigateByUrl('/users/edit/' + userDetail.loginDetails.userName  );
   }
 }

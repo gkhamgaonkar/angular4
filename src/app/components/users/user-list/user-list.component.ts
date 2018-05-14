@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {UserDetails} from "../../../model/userdetails";
 import {UserService} from "../../../services/user.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-list',
@@ -11,7 +12,7 @@ export class UserListComponent implements OnInit {
   userDetails: UserDetails[];
   newUser: UserDetails;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router : Router) {
     this.newUser = UserDetails.createNewUser();
   }
 
@@ -19,4 +20,7 @@ export class UserListComponent implements OnInit {
     this.userService.getAllUsers().then((userDetails => this.userDetails = userDetails));
   }
 
+  addNewUser() : void {
+    this.router.navigateByUrl('/users/add');
+  }
 }

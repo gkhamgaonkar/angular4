@@ -11,6 +11,7 @@ import {UserDetailsComponent} from './components/users/user-details/user-details
 import {UserService} from "./services/user.service";
 import {TemplateComponent} from "./components/common/template/template.component";
 import {HeaderComponent} from "./components/common/header/header.component";
+import { AddUserComponent } from './components/users/add-user/add-user.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {HeaderComponent} from "./components/common/header/header.component";
     TemplateComponent,
     HeaderComponent,
     MenuComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
@@ -33,12 +35,12 @@ import {HeaderComponent} from "./components/common/header/header.component";
       component: UserListComponent
     },
       {
-        path: 'users/:username',
+        path: 'users/:action/:username',
         component: UserDetailsComponent
       },
       {
-        path: 'users/:username/:edit',
-        component: UserDetailsComponent
+        path: 'users/add/',
+        component: AddUserComponent
       },
       {
         path: '',
