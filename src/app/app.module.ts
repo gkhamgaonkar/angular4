@@ -6,11 +6,11 @@ import {AppComponent} from './app.component';
 import {UserListComponent} from './components/users/user-list/user-list.component';
 import {UserSummaryComponent} from './components/users/user-summary/user-summary.component';
 import {LandingPageComponent} from './components/landing-page/landing-page.component';
-import {HeaderComponent} from './components/common/header/header.component';
 import {MenuComponent} from './components/common/menu/menu.component';
-import {FooterComponent} from './components/common/footer/footer.component';
 import {UserDetailsComponent} from './components/users/user-details/user-details.component';
 import {UserService} from "./services/user.service";
+import {TemplateComponent} from "./components/common/template/template.component";
+import {HeaderComponent} from "./components/common/header/header.component";
 
 
 @NgModule({
@@ -19,9 +19,10 @@ import {UserService} from "./services/user.service";
     UserListComponent,
     UserSummaryComponent,
     LandingPageComponent,
+    MenuComponent,
+    TemplateComponent,
     HeaderComponent,
     MenuComponent,
-    FooterComponent,
     UserDetailsComponent
   ],
   imports: [

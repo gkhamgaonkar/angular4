@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {UserDetails} from '../../../model/userdetails'
+import {Component, OnInit} from "@angular/core";
+import {UserDetails} from "../../../model/userdetails";
 import {UserService} from "../../../services/user.service";
 
 @Component({
@@ -8,19 +8,15 @@ import {UserService} from "../../../services/user.service";
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
+  userDetails: UserDetails[];
+  newUser: UserDetails;
 
-
-userDetails : UserDetails[];
-newUser : UserDetails;
-
-	constructor (private userService : UserService){
-		this.newUser = UserDetails.createNewUser();
-
-
-	}
+  constructor(private userService: UserService) {
+    this.newUser = UserDetails.createNewUser();
+  }
 
   ngOnInit(): void {
-    this.userService.getAllUsers().then((userDetails=> this.userDetails = userDetails));
-	}
+    this.userService.getAllUsers().then((userDetails => this.userDetails = userDetails));
+  }
 
 }
