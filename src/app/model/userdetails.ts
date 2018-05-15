@@ -35,7 +35,7 @@ export interface Name {
 
 
 export class UserDetails {
-
+  id : number;
 	name: Name;
 	loginDetails : UserLoginDetails;
 	roles : Roles[];

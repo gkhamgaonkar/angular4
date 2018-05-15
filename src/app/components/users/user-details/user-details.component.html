@@ -4,7 +4,7 @@
   <div class="loader"></div>
 </div>
 
-<div *ngIf="userLoaded" class="form-row  col-lg-6">
+<div *ngIf="userLoaded && userDetail" class="form-row  col-lg-6">
   <div class="form-group">
     <label>User Name</label>
     <p class="form-control-static">{{userDetail.loginDetails.userName}}</p>

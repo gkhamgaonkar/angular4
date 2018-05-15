@@ -16,29 +16,19 @@ export class UserService {
   getAllUsers(): Promise<UserDetails[]> {
     return this.http.get(USER_SERVER + "/users").toPromise().then(response => {
       console.log(response.json());
-      return response.json() as UserDetails[]
+      return response.json() as UserDetails[];
     });
-    // return new Promise<UserDetails[]>((resolve, reject) => {
-    //   setTimeout(()=>{resolve(this.userDetails);},1000);
-    // });
   }
 
   findByUserName(username: string): Promise<UserDetails> {
 
-    return new Promise<UserDetails>((resolve, reject) => {
-      this.getAllUsers().then((userDetails) => {
-        console.log(userDetails)
-        for (let user of userDetails) {
-          if (user.loginDetails.userName === username) {
-            console.log(user);
-            resolve(user);
-            return;
-          }
-        }
-        reject("No User Found");
-      })
-
+    return this.http.get(USER_SERVER + "/users?loginDetails.userName=" + username).toPromise().then(response => {
+      console.log(response);
+      let obj: UserDetails[] = response.json();
+      console.log(obj);
+      return obj[0];
     });
+
   }
 
   add(userToAdd: UserDetails): void {

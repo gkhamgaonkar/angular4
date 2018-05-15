@@ -14,7 +14,7 @@ import {UserService} from "../../../services/user.service";
 export class UserDetailsComponent implements OnInit {
 
   userDetail: UserDetails;
-  userLoaded : boolean;
+  userLoaded: boolean;
   editPage: boolean;
   titles: Title[];
   sex: Sex[];
@@ -30,8 +30,8 @@ export class UserDetailsComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.userService.findByUserName(params.get('username')).then((userDetail => {
         this.userDetail = userDetail;
-          console.log(this.userDetail);
-          this.userLoaded = true;
+        console.log(this.userDetail);
+        this.userLoaded = true;
       }));
       let action = params.get('action');
       if (!action) {
@@ -42,9 +42,6 @@ export class UserDetailsComponent implements OnInit {
       } else if (action.toUpperCase() === 'EDIT') {
         this.editPage = true;
       }
-
-
-
     });
   }
 
@@ -54,7 +51,7 @@ export class UserDetailsComponent implements OnInit {
 
     //Get name-value pairs from ProductTypeEnum
     let titleEnumList = EnumEx.getNames(Title);
-    console.log(titleEnumList);
+  //  console.log(titleEnumList);
 
     //Convert name-value pairs to ProductType[]
     titleEnumList.forEach(pair => {
@@ -70,7 +67,7 @@ export class UserDetailsComponent implements OnInit {
     let sex: Sex[] = [];
     //Get name-value pairs from ProductTypeEnum
     let sexNames = EnumEx.getNames(Sex);
-    console.log(sexNames);
+    //console.log(sexNames);
     //Convert name-value pairs to ProductType[]
     sexNames.forEach(pair => {
       let sexName: Sex;
