@@ -3,7 +3,7 @@
 <div class="form-row  col-lg-6">
   <div class="form-group">
     <label for="idUserName" >User Name</label>
-    <input    id="idUserName" class="form-control" type="text" value={{userDetail.loginDetails.userName}}/>
+    <input    id="idUserName" class="form-control" type="text" [(ngModel)]="userDetail.loginDetails.userName"/>
   </div>
   <div class="form-group">
     <label for="idTitle">Title</label>
@@ -15,11 +15,15 @@
 
   <div class="form-group ">
     <label for="idfName">First Name</label>
-    <input    id="idfName" class="form-control" type="text" value={{userDetail.name.firstName}}/>
+    <input    id="idfName" class="form-control" type="text" [(ngModel)]="userDetail.name.firstName" />
   </div>
   <div class="form-group ">
     <label  for="idmName">Middle Name</label>
-    <input class="form-control"  id="idmName"     type="text" value={{userDetail.name.middleName}}/>
+    <input class="form-control"  id="idmName"  type="text" [(ngModel)]="userDetail.name.middleName"/>
+  </div>
+  <div class="form-group ">
+    <label  for="idmName">Last Name</label>
+    <input class="form-control"  id="idLName"  type="text" [(ngModel)]="userDetail.name.lastName"/>
   </div>
   <div class="form-group">
     <label for="idSex">Sex</label>

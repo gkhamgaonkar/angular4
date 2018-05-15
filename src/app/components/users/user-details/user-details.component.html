@@ -16,14 +16,21 @@
 
   <div class="form-group ">
     <label for="idfName">First Name</label>
-    <input *ngIf="editPage" id="idfName" class="form-control" type="text" value={{userDetail.name.firstName}}/>
+    <input *ngIf="editPage" id="idfName" class="form-control" type="text" [(ngModel)]="userDetail.name.firstName" value={{userDetail.name.firstName}}/>
     <p *ngIf="!editPage" class="form-control-static">{{userDetail.name.firstName}}</p>
   </div>
   <div class="form-group ">
     <label  for="idmName">Middle Name</label>
-    <input class="form-control"  id="idmName"  *ngIf="editPage" type="text" value={{userDetail.name.middleName}}/>
+    <input class="form-control"  id="idmName"  *ngIf="editPage" type="text"   [(ngModel)]="userDetail.name.middleName" value={{userDetail.name.middleName}}/>
     <p *ngIf="!editPage" class="form-control-static">{{userDetail.name.middleName}}</p>
   </div>
+
+  <div class="form-group ">
+    <label  for="idmName">Last Name</label>
+    <input class="form-control"  id="idLName"  *ngIf="editPage" type="text"   [(ngModel)]="userDetail.name.lastName" value={{userDetail.name.lastName}}/>
+    <p *ngIf="!editPage" class="form-control-static">{{userDetail.name.lastName}}</p>
+  </div>
+
   <div class="form-group">
     <label for="idSex">Sex</label>
     <select id ="idSex" *ngIf="editPage" class="form-control"
@@ -32,4 +39,14 @@
     </select>
     <p *ngIf="!editPage" class="form-control-static">{{userDetail.userSex}}</p>
   </div>
+
+
+  <div class="form-group">
+    <button *ngIf="editPage"  type="button" (click)="updateUser()" class="btn btn-primary">Update User</button>
+    <button *ngIf="editPage"  type="button" (click)="backToList()" class="btn btn-primary">Back to list</button>
+  </div>
+
+
+
+
 </div>

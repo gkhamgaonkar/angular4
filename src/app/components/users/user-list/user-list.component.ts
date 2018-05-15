@@ -10,10 +10,9 @@ import {Router} from "@angular/router";
 })
 export class UserListComponent implements OnInit {
   userDetails: UserDetails[];
-  newUser: UserDetails;
 
   constructor(private userService: UserService, private router : Router) {
-    this.newUser = UserDetails.createNewUser();
+
   }
 
   ngOnInit(): void {

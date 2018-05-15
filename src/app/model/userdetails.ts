@@ -36,14 +36,12 @@ export interface Name {
 
 export class UserDetails {
 
-
 	name: Name;
 	loginDetails : UserLoginDetails;
 	roles : Roles[];
 	userSex : Sex;
 	userPhoto : string;
 	dateOfBirth : Date;
-
 
 	constructor (name:Name, ld:UserLoginDetails, roles:Roles[], sex:Sex , userPhoto : string , dateOfBirth : Date){
 			this.loginDetails = ld;
@@ -65,8 +63,9 @@ export class UserDetails {
 		ld.userName = "";
 		ld.password = "";
 		let roles : Roles[] = null;
-		console.log("new user detail");
-		return new UserDetails(name,ld,roles,null,null,null);
+    let userDetails = new UserDetails(name,ld,roles,null,null,null)
+		console.log("new user detail " + userDetails);
+		return userDetails;
 	}
 
 

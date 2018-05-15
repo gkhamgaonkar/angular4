@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute, ParamMap} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {Sex, UserDetails, Title} from "../../../model/userdetails";
 import "rxjs/add/operator/switchMap";
 import {EnumEx} from "../../../model/utils";
@@ -19,7 +19,7 @@ export class UserDetailsComponent implements OnInit {
   titles: Title[];
   sex: Sex[];
 
-  constructor(private route: ActivatedRoute, private userService: UserService) {
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) {
 
     this.titles = this.getTitles();
     this.sex = this.getUserSex();
@@ -38,10 +38,9 @@ export class UserDetailsComponent implements OnInit {
         this.editPage = false;
       } else if (action.toUpperCase() === 'EDIT') {
         this.editPage = true;
-      } else {
-        this.userDetail = UserDetails.createNewUser();
       }
 
+      console.log(this.userDetail);
 
     });
     // get all users from user serive
@@ -80,5 +79,15 @@ export class UserDetailsComponent implements OnInit {
 
     return sex;
   }
+
+  updateUser(): void {
+    this.userService.update(this.userDetail);
+    this.router.navigateByUrl("users");
+  }
+
+  backToList(): void {
+    this.router.navigateByUrl("users");
+  }
+
 
 }
