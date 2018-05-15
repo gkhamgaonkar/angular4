@@ -44,11 +44,8 @@ export class UserService {
     console.log(this.userDetails);
     if(number_idx!=-1){
       this.userDetails.splice(number_idx, 1,userToUpdate);
-
       console.log(this.userDetails);
     }
-
-
   }
 
   private getIndexOf(userName : string) : number {
