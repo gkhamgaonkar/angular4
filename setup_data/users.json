@@ -1,0 +1,66 @@
+{"users" :[  
+   {  
+      "id" :1,
+      "name":{  
+         "firstName":"John",
+         "title":"Mr",
+         "middleName":"P",
+         "lastName":"Doe"
+      },
+      "loginDetails":{  
+         "userName":"johnd",
+         "password":"123"
+      },
+      "roles":[  
+         {  
+            "role":"DATA_ENTRY",
+            "desc":"Data entry operator"
+         },
+         {  
+            "role":"REVIEWER",
+            "desc":"Content reviewer"
+         }
+      ],
+      "userSex":"MALE"
+   },
+   {  
+      "id" :2,
+      "name":{  
+         "title":"Mrs",
+         "firstName":"Susan",
+         "middleName":"G",
+         "lastName":"Doe"
+      },
+      "loginDetails":{  
+         "userName":"susand",
+         "password":"456"
+      },
+      "roles":[  
+         {  
+            "role":"REVIEWER",
+            "desc":"Content reviewer"
+         }
+      ],
+      "userSex":"FEMALE"
+   },
+   {  
+      "id" :3,
+      "name":{  
+         "title":"Master",
+         "firstName":"Dennis",
+         "middleName":"G",
+         "lastName":"Doe"
+      },
+      "loginDetails":{  
+         "userName":"dennisd",
+         "password":"789"
+      },
+      "roles":[  
+         {  
+            "role":"REVIEWER",
+            "desc":"Content reviewer"
+         }
+      ],
+      "userSex":"MALE"
+   }
+] }

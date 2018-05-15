@@ -11,12 +11,17 @@ import {UserService} from "../../services/user.service";
 export class LandingPageComponent implements OnInit{
 
   userDetails : UserDetails[];
+  userLoaded : boolean;
 
   constructor (private router: Router ,private userService : UserService){
   }
 
   ngOnInit(): void {
-    this.userService.getAllUsers().then((userDetails => this.userDetails = userDetails));
+    this.userService.getAllUsers().then(((userDetails) => {
+      this.userDetails = userDetails;
+      this.userLoaded = true;
+      console.log(this.userLoaded);
+    }));
   }
 
 

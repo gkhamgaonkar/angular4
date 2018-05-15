@@ -14,7 +14,7 @@ import {UserService} from "../../../services/user.service";
 export class UserDetailsComponent implements OnInit {
 
   userDetail: UserDetails;
-  userDetails: UserDetails[];
+  userLoaded : boolean;
   editPage: boolean;
   titles: Title[];
   sex: Sex[];
@@ -28,8 +28,11 @@ export class UserDetailsComponent implements OnInit {
   ngOnInit(): void {
     // get param map from router
     this.route.paramMap.subscribe((params: ParamMap) => {
-      this.userService.findByUserName(params.get('username')).then((userDetail => this.userDetail = userDetail));
-      console.log("params" + params);
+      this.userService.findByUserName(params.get('username')).then((userDetail => {
+        this.userDetail = userDetail;
+          console.log(this.userDetail);
+          this.userLoaded = true;
+      }));
       let action = params.get('action');
       if (!action) {
         action = "VIEW";
@@ -40,11 +43,9 @@ export class UserDetailsComponent implements OnInit {
         this.editPage = true;
       }
 
-      console.log(this.userDetail);
+
 
     });
-    // get all users from user serive
-    this.userService.getAllUsers().then((userDetails => this.userDetails = userDetails));
   }
 
 

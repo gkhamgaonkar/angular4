@@ -10,16 +10,22 @@ import {Router} from "@angular/router";
 })
 export class UserListComponent implements OnInit {
   userDetails: UserDetails[];
+  userLoaded: boolean;
 
-  constructor(private userService: UserService, private router : Router) {
+  constructor(private userService: UserService, private router: Router) {
 
   }
 
   ngOnInit(): void {
-    this.userService.getAllUsers().then((userDetails => this.userDetails = userDetails));
+    this.userService.getAllUsers().then((userDetails => {
+        this.userDetails = userDetails;
+        this.userLoaded = true;
+      }
+    ));
+
   }
 
-  addNewUser() : void {
+  addNewUser(): void {
     this.router.navigateByUrl('/users/add');
   }
 }

@@ -3,7 +3,8 @@
   </div>
 
 
-<div class="col-lg-3 col-md-6">
+
+  <div class="col-lg-3 col-md-6">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="row">
@@ -11,7 +12,8 @@
                         <i class="fa fa-users fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">{{userDetails.length}}</div>
+                        <div *ngIf="!userLoaded" class="loader"></div>
+                        <div *ngIf="userLoaded" class="huge">{{userDetails.length}}</div>
                         <div>Total Users</div>
                     </div>
                 </div>

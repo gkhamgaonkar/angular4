@@ -12,6 +12,8 @@ import {UserService} from "./services/user.service";
 import {TemplateComponent} from "./components/common/template/template.component";
 import {HeaderComponent} from "./components/common/header/header.component";
 import {AddUserComponent} from "./components/users/add-user/add-user.component";
+import {HttpModule} from "@angular/http";
+
 
 
 @NgModule({
@@ -30,6 +32,7 @@ import {AddUserComponent} from "./components/users/add-user/add-user.component";
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     RouterModule.forRoot([
       {
       path: 'users',

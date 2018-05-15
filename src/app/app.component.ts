@@ -9,13 +9,13 @@ import {UserService} from "./services/user.service";
 })
 export class AppComponent {
 
-	userDetails : UserDetails[];
+
 	constructor (private userService: UserService){
 
 	}
 
   ngOnInit(): void {
-    this.userService.getAllUsers().then((userDetails => this.userDetails = userDetails));
+
   }
 
 
