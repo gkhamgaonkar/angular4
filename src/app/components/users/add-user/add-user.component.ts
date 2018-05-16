@@ -27,8 +27,10 @@ export class AddUserComponent implements OnInit {
 
   addNewUser(){
     console.log(this.userDetail);
-    this.userService.add(this.userDetail);
-    this.router.navigateByUrl("users");
+    this.userService.add(this.userDetail).then(response => {
+      this.router.navigateByUrl("users");
+    });
+
   }
 
 

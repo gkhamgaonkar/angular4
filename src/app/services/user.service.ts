@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
+import {Injectable} from "@angular/core";
 import {UserDetails} from "../model/userdetails";
 import {Http} from "@angular//http";
-import 'rxjs/add/operator/toPromise'
+import "rxjs/add/operator/toPromise";
 
 const USER_SERVER = "http://localhost:3000";
 
@@ -13,14 +13,14 @@ export class UserService {
     // this.userDetails = JSON.parse(datas);
   }
 
-  getAllUsers(): Promise<UserDetails[]> {
+  public getAllUsers(): Promise<UserDetails[]> {
     return this.http.get(USER_SERVER + "/users").toPromise().then(response => {
       console.log(response.json());
       return response.json() as UserDetails[];
     });
   }
 
-  findByUserName(username: string): Promise<UserDetails> {
+  public findByUserName(username: string): Promise<UserDetails> {
 
     return this.http.get(USER_SERVER + "/users?loginDetails.userName=" + username).toPromise().then(response => {
       console.log(response);
@@ -28,35 +28,62 @@ export class UserService {
       console.log(obj);
       return obj[0];
     });
-
   }
 
-  add(userToAdd: UserDetails): void {
-    // this.userDetails.push(userToAdd);
-    // //console.log(this.userDetails)
+  private checkUserNameExists(user: UserDetails): Promise<boolean> {
+
+    return this.getAllUsers().then(((userDetails) => {
+      let found: boolean = false;
+      if (!userDetails) {
+        return null;
+      }
+      console.log(userDetails);
+      for (let ud of userDetails) {
+        if (ud.loginDetails.userName === user.loginDetails.userName) {
+          found = true;
+        }
+      }
+      return found;
+    }));
   }
 
-  update(userToUpdate: UserDetails): void {
-    // console.log("searching for " + userToUpdate.loginDetails.userName);
-    // let number_idx =  this.getIndexOf(userToUpdate.loginDetails.userName);
-    // console.log("number_idx " + number_idx);
-    // console.log(this.userDetails);
-    // if(number_idx!=-1){
-    //   this.userDetails.splice(number_idx, 1,userToUpdate);
-    //   console.log(this.userDetails);
-    // }
+  remove(userToRemove: UserDetails): void {
+    let response = this.http.delete(USER_SERVER + "/users/" + userToRemove.id).toPromise().then(response=> {
+      console.log(response);
+      if(response.status != 200){
+        console.error("not successful");
+      } else {
+        console.log("removed!!!");
+      }
+    });
   }
 
-  // private getIndexOf(userName : string) : number {
-  //   let index: number = 0 ;
-  //   for (let user of this.userDetails) {
-  //     if (user.loginDetails.userName === userName) {
-  //       return index;
-  //     }
-  //     index ++ ;
-  //   }
-  //   return -1;
-  // }
+  add(userToAdd: UserDetails): Promise<UserDetails> {
+    let found: boolean ;
+    this.checkUserNameExists(userToAdd).then(response=>{
+      found = response;
+    });
+    if (!found) {
+      return this.http.get("http://localhost:3000/users?_sort=id&_order=desc&_start=0&_end=1").toPromise().then(response => {
+        let obj: UserDetails[] = response.json();
+        console.log(obj[0].id);
+        //userToAdd.id = obj[0].id;
+        userToAdd.id++;
+        console.log(userToAdd);
+        return this.http.post(USER_SERVER + "/users", userToAdd).toPromise().then(response1 => {
+          console.log(response1);
+          return response1.json as UserDetails;
+        });
+      });
+    }
+    return null;
+  }
 
+  update(userToUpdate: UserDetails): Promise <UserDetails> {
+    return this.http.put(USER_SERVER + "/users/" + userToUpdate.id, userToUpdate).toPromise().then(response1 => {
+      console.log(response1.json);
+      return response1.json as UserDetails;
+    });
+  }
 
 }

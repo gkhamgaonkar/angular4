@@ -1,6 +1,7 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {UserDetails} from '../../../model/userdetails';
 import {Router} from "@angular/router";
+import {UserService} from "../../../services/user.service";
 
 @Component({
   selector: 'app-user-summary',
@@ -18,7 +19,8 @@ export class UserSummaryComponent {
     this.viewDetails.emit(this.userDetail)
   }
 
-  constructor(private  router: Router) {
+  constructor(private  router: Router , private userService : UserService) {
+
   }
 
   public showUserDetails(userDetail: UserDetails) {
@@ -28,5 +30,10 @@ export class UserSummaryComponent {
 
   public editUserDetails(userDetail: UserDetails) {
     this.router.navigateByUrl('/users/edit/' + userDetail.loginDetails.userName  );
+  }
+
+  public deleteUserDetails(userDetail: UserDetails){
+    console.log("remove clicked!!");
+    this.userService.remove(userDetail);
   }
 }

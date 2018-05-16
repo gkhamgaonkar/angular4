@@ -79,8 +79,10 @@ export class UserDetailsComponent implements OnInit {
   }
 
   updateUser(): void {
-    this.userService.update(this.userDetail);
-    this.router.navigateByUrl("users");
+    this.userService.update(this.userDetail).then(response=> {
+      this.router.navigateByUrl("users");
+    });
+
   }
 
   backToList(): void {
