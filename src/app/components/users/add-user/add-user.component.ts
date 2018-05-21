@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {UserDetails, Title, Sex} from "../../../model/userdetails";
-import {Router} from "@angular/router";
 import {UserService} from "../../../services/user.service";
 import {EnumEx} from "../../../model/utils";
 
@@ -15,9 +14,8 @@ export class AddUserComponent implements OnInit {
   titles: Title[];
   sex: Sex[];
 
-  constructor(private userService: UserService, private router : Router) {
+  constructor(private userService: UserService) {
     this.userDetail = UserDetails.createNewUser();
-    //console.log(this.userDetail);
     this.titles = this.getTitles();
     this.sex = this.getUserSex();
   }
@@ -27,8 +25,7 @@ export class AddUserComponent implements OnInit {
 
   addNewUser(){
     console.log(this.userDetail);
-    this.userService.add(this.userDetail);
-
+    this.userService.addAndNavigateTo(this.userDetail,"users");
   }
 
 
@@ -37,9 +34,6 @@ export class AddUserComponent implements OnInit {
 
     //Get name-value pairs from ProductTypeEnum
     let titleEnumList = EnumEx.getNames(Title);
-    //console.log(titleEnumList);
-
-    //Convert name-value pairs to ProductType[]
     titleEnumList.forEach(pair => {
       let title: Title;
       title = JSON.parse("\"" + pair + "\"");
@@ -51,16 +45,12 @@ export class AddUserComponent implements OnInit {
 
   private getUserSex() {
     let sex: Sex[] = [];
-    //Get name-value pairs from ProductTypeEnum
     let sexNames = EnumEx.getNames(Sex);
-    //console.log(sexNames);
-    //Convert name-value pairs to ProductType[]
     sexNames.forEach(pair => {
       let sexName: Sex;
       sexName = JSON.parse("\"" + pair + "\"");
       sex.push(sexName);
     });
-
     return sex;
   }
 
