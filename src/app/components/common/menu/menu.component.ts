@@ -18,5 +18,10 @@ export class MenuComponent implements OnInit {
   }
 
 
+  addNewRole(){
+    this.router.navigateByUrl('roles/add');
+  }
+
+
 
 }

@@ -14,7 +14,10 @@ import {HeaderComponent} from "./components/common/header/header.component";
 import {AddUserComponent} from "./components/users/add-user/add-user.component";
 import {HttpModule} from "@angular/http";
 import {CommonModule} from "@angular/common";
-
+import {RolesListComponent} from "./components/roles/roles-list/roles-list.component";
+import {RolesSummaryComponent} from "./components/roles/roles-summary/roles-summary.component";
+import {AddRolesComponent} from "./components/roles/add-roles/add-roles.component";
+import {RolesService} from "./services/roles.service";
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import {CommonModule} from "@angular/common";
     HeaderComponent,
     MenuComponent,
     UserDetailsComponent,
-    AddUserComponent
+    AddUserComponent,
+    RolesListComponent,
+    RolesSummaryComponent,
+    AddRolesComponent
   ],
   imports: [
     BrowserModule,
@@ -37,21 +43,33 @@ import {CommonModule} from "@angular/common";
     HttpModule,
     RouterModule.forRoot([
       {
-      path: 'users',
-      component: UserListComponent
-    }, {
+        path: 'users',
+        component: UserListComponent
+      },
+
+      {
         path: 'users/add',
         component: AddUserComponent
-      }, {
+      },
+      {
         path: 'users/:action/:username',
         component: UserDetailsComponent
-      },      {
+      },
+      {
+        path: 'roles',
+        component: RolesListComponent
+      },
+      {
+        path: 'roles/add',
+        component: AddRolesComponent
+      },
+      {
         path: '',
         component: LandingPageComponent
       }
     ]),
   ],
-  providers: [UserService],
+  providers: [UserService, RolesService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

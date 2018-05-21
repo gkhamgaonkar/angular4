@@ -1,0 +1,19 @@
+<div class="page-header huge">Role details</div>
+
+<div class="form-row  col-lg-6">
+  <div class="form-group">
+    <label for="idRoleName">Role Name</label>
+    <input id="idRoleName" class="form-control" type="text" [(ngModel)]="role.name"/>
+  </div>
+
+  <div class="form-group">
+    <label for="idRoleDesc">Role Description</label>
+    <input id="idRoleDesc" class="form-control" type="text" [(ngModel)]="role.description"/>
+  </div>
+
+  <div class="form-group">
+    <button type="button" (click)="addNewRole()" class="btn btn-primary">Save new User</button>
+  </div>
+
+
+</div>

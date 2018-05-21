@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": {
-        "firstName": "John",
+        "firstName": "John2",
         "title": "Mr",
         "middleName": "P",
         "lastName": "Doe"
@@ -14,12 +14,12 @@
       },
       "roles": [
         {
-          "role": "DATA_ENTRY",
-          "desc": "Data entry operator"
+          "name": "DATA_ENTRY",
+          "description": "Data entry operator"
         },
         {
-          "role": "REVIEWER",
-          "desc": "Content reviewer"
+          "name": "REVIEWER",
+          "description": "Content reviewer"
         }
       ],
       "userSex": "MALE"
@@ -38,8 +38,8 @@
       },
       "roles": [
         {
-          "role": "REVIEWER",
-          "desc": "Content reviewer"
+          "name": "REVIEWER",
+          "description": "Content reviewer"
         }
       ],
       "userSex": "FEMALE"
@@ -58,11 +58,21 @@
       },
       "roles": [
         {
-          "role": "REVIEWER",
-          "desc": "Content reviewer"
+          "name": "CONTENT_REVIEWER",
+          "description": "Content reviewer"
         }
       ],
       "userSex": "MALE"
+    }
+  ],
+  "roles": [
+    {
+      "name": "DATA_ENTRY",
+      "description": "Data entry operator"
+    },
+    {
+      "name": "CONTENT_REVIEWER",
+      "description": "Content reviewer"
     }
   ]
 }

@@ -22,8 +22,11 @@ export enum Title {
 
 
 export interface Roles {
-	role : string;
-	desc : string;
+  id: number;
+	name : string;
+  description : string;
+
+
 }
 export interface Name {
 
@@ -52,7 +55,16 @@ export class UserDetails {
 			this.name = name;
 	}
 
-	public static createNewUser(){
+  public static createNewRole() {
+	  let json: string  = "{\"name\":\"\" , \"description\":\"\" , \"id\":\"\"}";
+	  console.log(json);
+
+
+  return  JSON.parse(json) as Roles;
+  }
+
+
+  public static createNewUser(){
 
 		let name : Name = {} as any;
 		name.title = Title.Mr;

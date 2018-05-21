@@ -1,0 +1,26 @@
+
+<div class="page-header">
+  <div class="huge"> Roles
+    <div class="pull-right">
+      <button type="button" (click)="addNewRole()" class="btn btn-primary">Add new Role</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="rolesLoaded">
+
+  <div *ngFor='let role of roles'>
+    <app-roles-summary [role]='role'>
+    </app-roles-summary>
+  </div>
+</div>
+
+<div *ngIf="!rolesLoaded">
+  <div class="loader"></div>
+</div>
+
+<div *ngIf="rolesLoaded && (!roles || !roles.length)">
+  <p> No roles found!!! </p>
+</div>
+
+

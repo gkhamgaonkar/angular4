@@ -1,4 +1,3 @@
-
 <div class="navbar-default sidebar" role="navigation">
   <div class="sidebar-nav navbar-collapse">
     <ul class="nav" id="side-menu">
@@ -17,15 +16,23 @@
         <a href="/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
       </li>
       <li>
-        <a href="#"><i class="fa fa-sitemap fa-fw"></i> User details<span class="fa arrow"></span></a>
+        <a href="/users"><i class="fa fa-sitemap fa-fw"></i>User<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
+
           <li>
-            <a href="/users">User List</a>
-          </li>
-          <li>
-            <a (click)="addNewUser()" >Add new user</a>
+            <a (click)="addNewUser()">Add new user</a>
           </li>
 
+        </ul>
+        <!-- /.nav-second-level -->
+      </li>
+
+      <li>
+        <a href="/roles"><i class="fa fa-sitemap fa-fw"></i>User Roles<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+          <li>
+            <a (click)="addNewRole()">Add new role</a>
+          </li>
         </ul>
         <!-- /.nav-second-level -->
       </li>

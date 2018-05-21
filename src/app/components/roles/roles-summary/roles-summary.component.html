@@ -1,0 +1,31 @@
+<div *ngIf="showData">
+  <div class="col-lg-3 col-md-6">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="">
+            <div class="col-xs-6 ">{{role.name}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xs-6">{{role.description}}</div>
+        </div>
+      </div>
+
+
+      <a (click)="deleteRole(role)">
+        <div class="panel-footer">
+          <span class="pull-left">Delete role</span>
+          <span class="pull-right"><i class="glyphicon glyphicon-edit"></i></span>
+          <div class="clearfix"></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+
+
