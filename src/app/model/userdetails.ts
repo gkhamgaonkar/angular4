@@ -64,7 +64,7 @@ export class UserDetails {
 		ld.password = "";
 		let roles : Roles[] = null;
     let userDetails = new UserDetails(name,ld,roles,null,null,null)
-		console.log("new user detail " + userDetails);
+		//console.log("new user detail " + userDetails);
 		return userDetails;
 	}
 

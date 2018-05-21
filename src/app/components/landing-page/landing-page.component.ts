@@ -20,7 +20,7 @@ export class LandingPageComponent implements OnInit{
     this.userService.getAllUsers().then(((userDetails) => {
       this.userDetails = userDetails;
       this.userLoaded = true;
-      console.log(this.userLoaded);
+      //console.log(this.userLoaded);
     }));
   }
 

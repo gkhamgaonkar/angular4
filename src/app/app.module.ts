@@ -13,6 +13,7 @@ import {TemplateComponent} from "./components/common/template/template.component
 import {HeaderComponent} from "./components/common/header/header.component";
 import {AddUserComponent} from "./components/users/add-user/add-user.component";
 import {HttpModule} from "@angular/http";
+import {CommonModule} from "@angular/common";
 
 
 
@@ -32,6 +33,7 @@ import {HttpModule} from "@angular/http";
   imports: [
     BrowserModule,
     FormsModule,
+    CommonModule,
     HttpModule,
     RouterModule.forRoot([
       {

@@ -10,6 +10,8 @@ import {UserService} from "../../../services/user.service";
 })
 export class UserSummaryComponent {
 
+  showData : boolean;
+
   @Input()
   userDetail: UserDetails;
   @Output()
@@ -20,7 +22,7 @@ export class UserSummaryComponent {
   }
 
   constructor(private  router: Router , private userService : UserService) {
-
+    this.showData = true;
   }
 
   public showUserDetails(userDetail: UserDetails) {
@@ -33,7 +35,10 @@ export class UserSummaryComponent {
   }
 
   public deleteUserDetails(userDetail: UserDetails){
-    console.log("remove clicked!!");
-    this.userService.remove(userDetail);
+    //console.log("remove clicked!!");
+    this.userService.remove(userDetail).then(response => {
+      this.showData = false;
+    });
+
   }
 }

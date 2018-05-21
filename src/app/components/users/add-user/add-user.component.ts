@@ -17,7 +17,7 @@ export class AddUserComponent implements OnInit {
 
   constructor(private userService: UserService, private router : Router) {
     this.userDetail = UserDetails.createNewUser();
-    console.log(this.userDetail);
+    //console.log(this.userDetail);
     this.titles = this.getTitles();
     this.sex = this.getUserSex();
   }
@@ -39,7 +39,7 @@ export class AddUserComponent implements OnInit {
 
     //Get name-value pairs from ProductTypeEnum
     let titleEnumList = EnumEx.getNames(Title);
-    console.log(titleEnumList);
+    //console.log(titleEnumList);
 
     //Convert name-value pairs to ProductType[]
     titleEnumList.forEach(pair => {
@@ -55,7 +55,7 @@ export class AddUserComponent implements OnInit {
     let sex: Sex[] = [];
     //Get name-value pairs from ProductTypeEnum
     let sexNames = EnumEx.getNames(Sex);
-    console.log(sexNames);
+    //console.log(sexNames);
     //Convert name-value pairs to ProductType[]
     sexNames.forEach(pair => {
       let sexName: Sex;
