@@ -2,14 +2,16 @@ import {Injectable} from "@angular/core";
 import {UserDetails} from "../model/userdetails";
 import {Http} from "@angular//http";
 import "rxjs/add/operator/toPromise";
+import {environment} from "../../environments/environment";
+import {Router} from "@angular/router";
 
-const USER_SERVER = "http://localhost:3000";
+const USER_SERVER = environment.USER_SERVER;
 
 @Injectable()
 export class UserService {
 
 
-  constructor(private  http: Http) {
+  constructor(private  http: Http , private router : Router) {
     // this.userDetails = JSON.parse(datas);
   }
 
@@ -47,36 +49,51 @@ export class UserService {
     }));
   }
 
-  remove(userToRemove: UserDetails): Promsie<any> {
+  remove(userToRemove: UserDetails): Promise<any> {
     return this.http.delete(USER_SERVER + "/users/" + userToRemove.id).toPromise();
 
   }
 
-  add(userToAdd: UserDetails): Promise<UserDetails> {
+  add(userToAdd: UserDetails): void {
     let found: boolean;
-    return this.checkUserNameExists(userToAdd).then(response => {
+    this.checkUserNameExists(userToAdd).then(response => {
       found = response;
       if (!found) {
-        return this.http.get("http://localhost:3000/users?_sort=id&_order=desc&_start=0&_end=1").toPromise().then(response => {
+        this.http.get(USER_SERVER + "/users?_sort=id&_order=desc&_start=0&_end=1").toPromise().then(response => {
           let obj: UserDetails[] = response.json();
-          //console.log(obj[0].id);
-          //userToAdd.id = obj[0].id;
           userToAdd.id++;
-          //console.log(userToAdd);
-          return this.http.post(USER_SERVER + "/users", userToAdd).toPromise().then(response1 => {
-            //console.log(response1);
-            return response1.json as UserDetails;
+          this.http.post(USER_SERVER + "/users", userToAdd).toPromise().then(response1 => {
+              console.log(response1);
           });
         });
       }
     });
-
   }
 
-  update(userToUpdate: UserDetails): Promise <UserDetails> {
-    return this.http.put(USER_SERVER + "/users/" + userToUpdate.id, userToUpdate).toPromise().then(response1 => {
-      //console.log(response1.json);
-      return response1.json as UserDetails;
+
+  addAndNavigateTo(userToAdd: UserDetails,url: string): void {
+    let found: boolean;
+    this.checkUserNameExists(userToAdd).then(response => {
+      found = response;
+      if (!found) {
+        this.http.get(USER_SERVER + "/users?_sort=id&_order=desc&_start=0&_end=1").toPromise().then(response => {
+          let obj: UserDetails[] = response.json();
+          userToAdd.id++;
+          this.http.post(USER_SERVER + "/users", userToAdd).toPromise().then(response1 => {
+            this.router.navigateByUrl(url);
+          });
+        });
+      }
+    });
+  }
+
+  update(userToUpdate: UserDetails): void {
+    this.http.put(USER_SERVER + "/users/" + userToUpdate.id, userToUpdate);
+  }
+
+  updateAndNavigate(userToUpdate: UserDetails , url : string): void {
+    this.http.put(USER_SERVER + "/users/" + userToUpdate.id, userToUpdate).toPromise().then(response1 => {
+      this.router.navigateByUrl(url);
     });
   }
 
