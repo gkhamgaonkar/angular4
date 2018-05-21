@@ -15,7 +15,7 @@
       "roles": [
         {
           "name": "DATA_ENTRY",
-          "description": "Data entty operator"
+          "description": "Data entry operator"
         },
         {
           "name": "REVIEWER",
