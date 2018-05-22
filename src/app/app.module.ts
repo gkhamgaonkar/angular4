@@ -18,6 +18,8 @@ import {RolesListComponent} from "./components/roles/roles-list/roles-list.compo
 import {RolesSummaryComponent} from "./components/roles/roles-summary/roles-summary.component";
 import {AddRolesComponent} from "./components/roles/add-roles/add-roles.component";
 import {RolesService} from "./services/roles.service";
+import {MatTableModule, MatOptionModule, MatSelectModule} from "@angular/material";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 @NgModule({
@@ -35,10 +37,15 @@ import {RolesService} from "./services/roles.service";
     RolesListComponent,
     RolesSummaryComponent,
     AddRolesComponent
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
+    MatOptionModule,
+    MatTableModule,
     CommonModule,
     HttpModule,
     RouterModule.forRoot([

@@ -47,11 +47,59 @@
     <p *ngIf="!editPage" class="form-control-static">{{userDetail.userSex}}</p>
   </div>
 
+  <div class="form-group" *ngIf="rolesLoaded">
+    <label for="idRole">Add Role</label>
+    <mat-form-field>
+      <mat-select [(value)]="selectedRole">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let role of roles" [value]="role">{{role.description}}</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <div class="form-group">
-    <button *ngIf="editPage" type="button" (click)="updateUser()" class="btn btn-primary">Update User</button>
-    <button *ngIf="editPage" type="button" (click)="backToList()" class="btn btn-primary">Back to list</button>
+    <button *ngIf="editPage" type="button" (click)="addRoleToUser()" class="btn btn-primary">Add role</button>
   </div>
 
 
-</div>
+  <div class="form-group">
+    <label for="idRole">Role</label>
+    <div id="idRole" class="example-container mat-elevation-z8">
+      <mat-table #table [dataSource]="userDetail.roles">
+
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="description">
+          <mat-header-cell *matHeaderCellDef> Description</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.description}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="action" *ngIf="editPage">
+          <mat-header-cell *matHeaderCellDef> Action</mat-header-cell>
+          <mat-cell *matCellDef="let element"><a (click)="deleteRole(element)">Remove role</a>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+
+
+    </div>
+
+
+
+    <div *ngIf="(!userDetail.roles || !userDetail.roles.length)">
+      <p> No roles found!!! </p>
+    </div>
+
+
+    <div class="form-group">
+      <button *ngIf="editPage" type="button" (click)="updateUser()" class="btn btn-primary">Update User</button>
+      <button *ngIf="editPage" type="button" (click)="backToList()" class="btn btn-primary">Back to list</button>
+    </div>
+
+
+  </div>

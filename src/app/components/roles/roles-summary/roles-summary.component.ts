@@ -26,12 +26,5 @@ export class RolesSummaryComponent  {
     this.showData = true;
   }
 
-  public deleteRole(role: Roles){
-    //console.log("remove clicked!!");
-    this.roleService.remove(role).then(response => {
-      this.showData = false;
-    });
-
-  }
 
 }

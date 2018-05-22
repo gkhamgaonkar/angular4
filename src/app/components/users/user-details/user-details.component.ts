@@ -1,9 +1,10 @@
 import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
-import {Sex, UserDetails, Title} from "../../../model/userdetails";
+import {Sex, UserDetails, Title, Roles} from "../../../model/userdetails";
 import "rxjs/add/operator/switchMap";
 import {EnumEx} from "../../../model/utils";
 import {UserService} from "../../../services/user.service";
+import {RolesService} from "../../../services/roles.service";
 
 
 @Component({
@@ -17,13 +18,27 @@ export class UserDetailsComponent implements OnInit {
   userLoaded: boolean;
   editPage: boolean;
   titles: Title[];
+  roles : Roles[];
   sex: Sex[];
+  displayedColumns : String[];
+  rolesLoaded : boolean = false;
+  selectedRole : Roles;
 
-  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) {
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService , private rolesService: RolesService) {
 
     this.titles = this.getTitles();
     this.sex = this.getUserSex();
   }
+
+  private getAllRoles() {
+    this.rolesService.getAllRoles().then((roles => {
+        this.roles = roles;
+
+        this.rolesLoaded = true;
+      }
+    ));
+  }
+
 
   ngOnInit(): void {
     // get param map from router
@@ -39,10 +54,13 @@ export class UserDetailsComponent implements OnInit {
       }
       if (action.toUpperCase() === 'VIEW') {
         this.editPage = false;
+        this.displayedColumns = ['name', 'description' ];
       } else if (action.toUpperCase() === 'EDIT') {
         this.editPage = true;
+        this.displayedColumns = ['name', 'description' , 'action'];
       }
     });
+    this.getAllRoles();
   }
 
 
@@ -74,8 +92,24 @@ export class UserDetailsComponent implements OnInit {
       sexName = JSON.parse("\"" + pair + "\"");
       sex.push(sexName);
     });
-
     return sex;
+  }
+
+  deleteRole(roleToDelete:Roles){
+    if(!this.userDetail || !this.userDetail.roles){
+      return;
+    }
+    let idx = 0 ;
+    let found = false;
+    for(let role of this.userDetail.roles){
+      if(!found) {
+        idx++;
+      }
+        if(role.name === roleToDelete.name){
+          found = true;
+        }
+    }
+    this.userDetail.roles = this.userDetail.roles.splice(idx,1);
   }
 
   updateUser(): void {
@@ -86,5 +120,22 @@ export class UserDetailsComponent implements OnInit {
     this.router.navigateByUrl("users");
   }
 
+
+  addRoleToUser(){
+    if(!this.selectedRole){
+      return;
+    }
+    let found : boolean = false;
+    for(let userRole of this.userDetail.roles) {
+      if(userRole.name === this.selectedRole.name){
+        found = true;
+        console.log("found");
+      }
+    }
+    if(!found){
+      this.userDetail.roles.push(this.selectedRole);
+      this.selectedRole = null;
+    }
+  }
 
 }

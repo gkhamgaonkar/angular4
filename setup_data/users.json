@@ -14,11 +14,7 @@
       },
       "roles": [
         {
-          "name": "DATA_ENTRY",
-          "description": "Data entry operator"
-        },
-        {
-          "name": "REVIEWER",
+          "name": "CONTENT_REVIEWER",
           "description": "Content reviewer"
         }
       ],
@@ -38,7 +34,7 @@
       },
       "roles": [
         {
-          "name": "REVIEWER",
+          "name": "CONTENT_REVIEWER",
           "description": "Content reviewer"
         }
       ],
