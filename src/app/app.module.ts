@@ -12,7 +12,7 @@ import {UserService} from "./services/user.service";
 import {TemplateComponent} from "./components/common/template/template.component";
 import {HeaderComponent} from "./components/common/header/header.component";
 import {AddUserComponent} from "./components/users/add-user/add-user.component";
-import {HttpModule} from "@angular/http";
+import {HttpClientModule} from '@angular/common/http';
 import {CommonModule} from "@angular/common";
 import {RolesListComponent} from "./components/roles/roles-list/roles-list.component";
 import {RolesSummaryComponent} from "./components/roles/roles-summary/roles-summary.component";
@@ -20,6 +20,8 @@ import {AddRolesComponent} from "./components/roles/add-roles/add-roles.componen
 import {RolesService} from "./services/roles.service";
 import {MatTableModule, MatOptionModule, MatSelectModule} from "@angular/material";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {LoggerService} from "./services/logger.service";
+import {ConsoleLoggerService} from "./services/console-logger.service";
 
 
 @NgModule({
@@ -45,9 +47,10 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MatSelectModule,
     BrowserAnimationsModule,
     MatOptionModule,
+    HttpClientModule,
     MatTableModule,
     CommonModule,
-    HttpModule,
+
     RouterModule.forRoot([
       {
         path: 'users',
@@ -76,7 +79,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
       }
     ]),
   ],
-  providers: [UserService, RolesService],
+  providers: [UserService, RolesService, { provide: LoggerService, useClass: ConsoleLoggerService } ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

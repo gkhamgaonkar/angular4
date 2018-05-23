@@ -4,19 +4,20 @@ import {Http} from "@angular/http";
 import "rxjs/add/operator/toPromise";
 import {Router} from "@angular/router";
 import {Roles} from "../model/userdetails";
+import {HttpClient} from "@angular/common/http";
 
 
 const USER_SERVER = environment.USER_SERVER;
 @Injectable()
 export class RolesService {
 
-  constructor(private  http: Http , private router : Router) {
+  constructor(private  http: HttpClient , private router : Router) {
   }
 
 
   public getAllRoles(): Promise<Roles[]> {
     return this.http.get(USER_SERVER + "/roles").toPromise().then(response => {
-      return response.json() as Roles[];
+      return response as Roles[];
     });
   }
 
@@ -28,7 +29,7 @@ export class RolesService {
 
     return this.http.get(USER_SERVER + "/roles?loginDetails.userName=" + roleName).toPromise().then(response => {
       //console.log(response);
-      let obj: Roles[] = response.json();
+      let obj: Roles[] = response as Roles[];
       //console.log(obj);
       return obj[0];
     });
@@ -42,7 +43,7 @@ export class RolesService {
       found = response;
       if (!found) {
         this.http.get(USER_SERVER + "/roles?_sort=id&_order=desc&_start=0&_end=1").toPromise().then(response => {
-          let obj: Roles[] = response.json();
+          let obj: Roles[] = response as Roles[];
           roleToAdd.id++;
           this.http.post(USER_SERVER + "/roles", roleToAdd).toPromise().then(response1 => {
             this.router.navigateByUrl(url);

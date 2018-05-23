@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  USER_SERVER : "http://localhost:3000"
+  USER_SERVER : "http://localhost:3000",
+  isDebugMode : false
 };

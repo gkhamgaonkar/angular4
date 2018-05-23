@@ -1,9 +1,11 @@
 import {Injectable} from "@angular/core";
 import {UserDetails} from "../model/userdetails";
-import {Http} from "@angular//http";
+import {HttpClient} from "@angular//common/http";
 import "rxjs/add/operator/toPromise";
 import {environment} from "../../environments/environment";
 import {Router} from "@angular/router";
+import {LoggerService} from "./logger.service";
+import {logger} from "codelyzer/util/logger";
 
 const USER_SERVER = environment.USER_SERVER;
 
@@ -11,22 +13,22 @@ const USER_SERVER = environment.USER_SERVER;
 export class UserService {
 
 
-  constructor(private  http: Http , private router : Router) {
+  constructor(private  http: HttpClient , private router : Router , private logger: LoggerService) {
     // this.userDetails = JSON.parse(datas);
   }
 
   public getAllUsers(): Promise<UserDetails[]> {
     return this.http.get(USER_SERVER + "/users").toPromise().then(response => {
-      //console.log(response.json());
-      return response.json() as UserDetails[];
+      this.logger.error(response);
+      return response as UserDetails[];
     });
   }
 
   public findByUserName(username: string): Promise<UserDetails> {
 
     return this.http.get(USER_SERVER + "/users?loginDetails.userName=" + username).toPromise().then(response => {
-      //console.log(response);
-      let obj: UserDetails[] = response.json();
+      this.logger.warn(response);
+      let obj: UserDetails[] = response as UserDetails[];
       //console.log(obj);
       return obj[0];
     });
@@ -60,7 +62,8 @@ export class UserService {
       found = response;
       if (!found) {
         this.http.get(USER_SERVER + "/users?_sort=id&_order=desc&_start=0&_end=1").toPromise().then(response => {
-          let obj: UserDetails[] = response.json();
+          //logger.info(response);
+          let obj: UserDetails[] = response as UserDetails[];
           userToAdd.id++;
           this.http.post(USER_SERVER + "/users", userToAdd).toPromise().then(response1 => {
               console.log(response1);
@@ -77,7 +80,8 @@ export class UserService {
       found = response;
       if (!found) {
         this.http.get(USER_SERVER + "/users?_sort=id&_order=desc&_start=0&_end=1").toPromise().then(response => {
-          let obj: UserDetails[] = response.json();
+
+          let obj: UserDetails[] = response as UserDetails[];
           userToAdd.id++;
           this.http.post(USER_SERVER + "/users", userToAdd).toPromise().then(response1 => {
             this.router.navigateByUrl(url);
