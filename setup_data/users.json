@@ -16,6 +16,15 @@
         {
           "name": "CONTENT_REVIEWER",
           "description": "Content reviewer"
+        },
+        {
+          "name": "DATA_ENTRY",
+          "description": "Data entry operator"
+        },
+        {
+          "name": "ADMINISTRATOR",
+          "description": "admin",
+          "id": 1
         }
       ],
       "userSex": "MALE"
@@ -59,6 +68,23 @@
         }
       ],
       "userSex": "MALE"
+    },
+    {
+      "loginDetails": {
+        "userName": "tim",
+        "password": "123456789"
+      },
+      "roles": null,
+      "userSex": "MALE",
+      "userPhoto": null,
+      "dateOfBirth": null,
+      "name": {
+        "title": "Mr",
+        "firstName": "tim",
+        "middleName": "",
+        "lastName": "cook"
+      },
+      "id": 4
     }
   ],
   "roles": [
@@ -69,6 +95,11 @@
     {
       "name": "CONTENT_REVIEWER",
       "description": "Content reviewer"
+    },
+    {
+      "name": "ADMINISTRATOR",
+      "description": "admin",
+      "id": 1
     }
   ]
 }

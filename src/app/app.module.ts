@@ -22,6 +22,7 @@ import {MatTableModule, MatOptionModule, MatSelectModule} from "@angular/materia
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {LoggerService} from "./services/logger.service";
 import {ConsoleLoggerService} from "./services/console-logger.service";
+import {DropdownModule} from 'primeng/primeng';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import {ConsoleLoggerService} from "./services/console-logger.service";
     RolesSummaryComponent,
     AddRolesComponent
 
+
   ],
   imports: [
     BrowserModule,
@@ -49,6 +51,7 @@ import {ConsoleLoggerService} from "./services/console-logger.service";
     MatOptionModule,
     HttpClientModule,
     MatTableModule,
+    DropdownModule,
     CommonModule,
 
     RouterModule.forRoot([

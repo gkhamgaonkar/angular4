@@ -48,13 +48,16 @@
   </div>
 
   <div class="form-group" *ngIf="rolesLoaded">
-    <label for="idRole">Add Role</label>
-    <mat-form-field>
-      <mat-select [(value)]="selectedRole">
-        <mat-option>None</mat-option>
-        <mat-option *ngFor="let role of roles" [value]="role">{{role.description}}</mat-option>
-      </mat-select>
-    </mat-form-field>
+    <label for="idAddRole">Add Role</label>
+    <p-dropdown id="idAddRole" *ngIf="editPage" class="form-control">
+      <option *ngFor="let role of roles" [ngValue]="role">{{role.description}}</option>
+    </p-dropdown>
+    <!--<mat-form-field>-->
+      <!--<mat-select [(value)]="selectedRole">-->
+        <!--<mat-option>None</mat-option>-->
+        <!--<mat-option *ngFor="let role of roles" [value]="role">{{role.description}}</mat-option>-->
+      <!--</mat-select>-->
+    <!--</mat-form-field>-->
 
     <button *ngIf="editPage" type="button" (click)="addRoleToUser()" class="btn btn-primary">Add role</button>
   </div>
@@ -62,6 +65,7 @@
 
   <div class="form-group">
     <label for="idRole">Role</label>
+
     <div id="idRole" class="example-container mat-elevation-z8">
       <mat-table #table [dataSource]="userDetail.roles">
 
@@ -86,7 +90,6 @@
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
       </mat-table>
 
-
     </div>
 
 
@@ -101,5 +104,5 @@
       <button *ngIf="editPage" type="button" (click)="backToList()" class="btn btn-primary">Back to list</button>
     </div>
 
-
+  </div>
   </div>

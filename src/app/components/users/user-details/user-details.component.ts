@@ -5,6 +5,8 @@ import "rxjs/add/operator/switchMap";
 import {EnumEx} from "../../../model/utils";
 import {UserService} from "../../../services/user.service";
 import {RolesService} from "../../../services/roles.service";
+import {DropdownModule} from 'primeng/dropdown';
+
 
 
 @Component({
