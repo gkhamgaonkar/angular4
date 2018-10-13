@@ -1,7 +1,7 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {Roles} from "../../../model/userdetails";
+import {Roles} from "../../../../model/userdetails";
 import {Router} from "@angular/router";
-import {RolesService} from "../../../services/roles.service";
+import {RolesService} from "../../../../services/roles.service";
 
 @Component({
   selector: 'app-roles-summary',

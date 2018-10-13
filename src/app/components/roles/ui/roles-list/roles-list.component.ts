@@ -1,6 +1,6 @@
 import {Component, OnInit, ChangeDetectorRef} from '@angular/core';
-import {Roles} from "../../../model/userdetails";
-import {RolesService} from "../../../services/roles.service";
+import {Roles} from "../../../../model/userdetails";
+import {RolesService} from "../../../../services/roles.service";
 import {Router} from "@angular/router";
 
 @Component({

@@ -1,10 +1,10 @@
 import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
-import {Sex, UserDetails, Title, Roles} from "../../../model/userdetails";
+import {Sex, UserDetails, Title, Roles} from "../../../../model/userdetails";
 import "rxjs/add/operator/switchMap";
-import {EnumEx} from "../../../model/utils";
-import {UserService} from "../../../services/user.service";
-import {RolesService} from "../../../services/roles.service";
+import {EnumEx} from "../../../../model/utils";
+import {UserService} from "../../../../services/user.service";
+import {RolesService} from "../../../../services/roles.service";
 import {DropdownModule} from 'primeng/dropdown';
 
 

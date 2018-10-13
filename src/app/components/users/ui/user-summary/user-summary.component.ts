@@ -1,7 +1,7 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {UserDetails} from '../../../model/userdetails';
+import {UserDetails} from '../../../../model/userdetails';
 import {Router} from "@angular/router";
-import {UserService} from "../../../services/user.service";
+import {UserService} from "../../../../services/user.service";
 
 @Component({
   selector: 'app-user-summary',

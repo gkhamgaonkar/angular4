@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {UserDetails, Title, Sex} from "../../../model/userdetails";
-import {UserService} from "../../../services/user.service";
-import {EnumEx} from "../../../model/utils";
+import {UserDetails, Title, Sex} from "../../../../model/userdetails";
+import {UserService} from "../../../../services/user.service";
+import {EnumEx} from "../../../../model/utils";
 
 @Component({
   selector: 'app-add-user',
