@@ -82,7 +82,7 @@ export class UserService {
         this.http.get(USER_SERVER + "/users?_sort=id&_order=desc&_start=0&_end=1").toPromise().then(response => {
 
           let obj: UserDetails[] = response as UserDetails[];
-          userToAdd.id++;
+          userToAdd.id = obj[0].id + 1;
           this.http.post(USER_SERVER + "/users", userToAdd).toPromise().then(response1 => {
             this.router.navigateByUrl(url);
           });

@@ -23,6 +23,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {LoggerService} from "./components/common/service/logger.service";
 import {ConsoleLoggerService} from "./components/common/service/console-logger.service";
 import {DropdownModule} from 'primeng/primeng';
+import {RolesModule} from "./components/roles/roles.module";
 
 
 @NgModule({
@@ -37,19 +38,17 @@ import {DropdownModule} from 'primeng/primeng';
     MenuComponent,
     UserDetailsComponent,
     AddUserComponent,
-    RolesListComponent,
-    RolesSummaryComponent,
-    AddRolesComponent
 
 
   ],
   imports: [
+    RolesModule,
     BrowserModule,
+    HttpClientModule,
     FormsModule,
-    MatSelectModule,
     BrowserAnimationsModule,
     MatOptionModule,
-    HttpClientModule,
+    MatSelectModule,
     MatTableModule,
     DropdownModule,
     CommonModule,
@@ -67,14 +66,6 @@ import {DropdownModule} from 'primeng/primeng';
       {
         path: 'users/:action/:username',
         component: UserDetailsComponent
-      },
-      {
-        path: 'roles',
-        component: RolesListComponent
-      },
-      {
-        path: 'roles/add',
-        component: AddRolesComponent
       },
       {
         path: '',

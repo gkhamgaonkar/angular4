@@ -44,8 +44,10 @@ export class RolesService {
       if (!found) {
         this.http.get(USER_SERVER + "/roles?_sort=id&_order=desc&_start=0&_end=1").toPromise().then(response => {
           let obj: Roles[] = response as Roles[];
-          roleToAdd.id++;
+          roleToAdd.id = obj[0].id + 1;
+          console.log(obj.length);
           this.http.post(USER_SERVER + "/roles", roleToAdd).toPromise().then(response1 => {
+
             this.router.navigateByUrl(url);
           });
         });
@@ -63,8 +65,10 @@ export class RolesService {
       for (let rl of roles) {
         if (rl.name === roleToFind.name) {
           found = true;
+          console.info("role " + roleToFind.name +   " : Found ")
         }
       }
+
       return found;
     }));
   }

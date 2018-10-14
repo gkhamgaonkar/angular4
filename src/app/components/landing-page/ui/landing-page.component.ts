@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {UserDetails} from "../../users/model/userdetails";
 import {Router} from "@angular/router";
-import {UserService} from "../../users/service/user.service";
-import {RolesService} from "../../roles/service/roles.service";
 import {Roles} from "../../roles/model/roles";
+import {UserDetails} from "../../users/model/userdetails";
+import {RolesService} from "../../roles/service/roles.service";
+import {UserService} from "../../users/service/user.service";
+
 
 @Component({
   selector: 'app-landing-page',
@@ -13,7 +14,7 @@ import {Roles} from "../../roles/model/roles";
 export class LandingPageComponent implements OnInit{
 
   userDetails : UserDetails[];
-  roles: Roles[];
+  roles: Roles [];
   userLoaded : boolean;
   rolesLoaded: boolean;
 
