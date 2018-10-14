@@ -1,7 +1,7 @@
 import {Component, OnInit, ChangeDetectorRef} from '@angular/core';
-import {Roles} from "../../../../model/userdetails";
-import {RolesService} from "../../../../services/roles.service";
+import {RolesService} from "../../service/roles.service";
 import {Router} from "@angular/router";
+import {Roles} from "../../model/roles";
 
 @Component({
   selector: 'app-roles-list',

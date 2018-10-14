@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Logger } from './logger.service';
-import {environment} from "../../environments/environment";
+import {environment} from "../../../../environments/environment";
 
 export let isDebugMode = environment.isDebugMode;
 

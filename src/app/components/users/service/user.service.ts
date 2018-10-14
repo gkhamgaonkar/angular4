@@ -2,9 +2,9 @@ import {Injectable} from "@angular/core";
 import {UserDetails} from "../model/userdetails";
 import {HttpClient} from "@angular//common/http";
 import "rxjs/add/operator/toPromise";
-import {environment} from "../../environments/environment";
+import {environment} from "../../../../environments/environment";
 import {Router} from "@angular/router";
-import {LoggerService} from "./logger.service";
+import {LoggerService} from "../../common/service/logger.service";
 import {logger} from "codelyzer/util/logger";
 
 const USER_SERVER = environment.USER_SERVER;

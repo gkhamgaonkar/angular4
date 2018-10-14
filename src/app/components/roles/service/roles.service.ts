@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import {environment} from "../../environments/environment";
+import {environment} from "../../../../environments/environment";
 import {Http} from "@angular/http";
 import "rxjs/add/operator/toPromise";
 import {Router} from "@angular/router";
-import {Roles} from "../model/userdetails";
 import {HttpClient} from "@angular/common/http";
+import {Roles} from "../model/roles";
 
 
 const USER_SERVER = environment.USER_SERVER;

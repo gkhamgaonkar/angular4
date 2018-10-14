@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Roles, UserDetails} from "app/model/userdetails";
-import {RolesService} from "app/services/roles.service";
+import {UserDetails} from "app/components/users/model/userdetails";
+import {RolesService} from "app/components/roles/service/roles.service";
+import {Roles} from "../../model/roles";
 
 @Component({
   selector: 'app-add-roles',
@@ -10,7 +11,7 @@ import {RolesService} from "app/services/roles.service";
 export class AddRolesComponent implements OnInit {
 
 
-  role : Roles
+  role : Roles;
 
   constructor(private roleService: RolesService) {
   this.role = UserDetails.createNewRole();

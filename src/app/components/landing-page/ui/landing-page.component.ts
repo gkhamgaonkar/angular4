@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {UserDetails, Roles} from "../../model/userdetails";
+import {UserDetails} from "../../users/model/userdetails";
 import {Router} from "@angular/router";
-import {UserService} from "../../services/user.service";
-import {RolesService} from "../../services/roles.service";
+import {UserService} from "../../users/service/user.service";
+import {RolesService} from "../../roles/service/roles.service";
+import {Roles} from "../../roles/model/roles";
 
 @Component({
   selector: 'app-landing-page',

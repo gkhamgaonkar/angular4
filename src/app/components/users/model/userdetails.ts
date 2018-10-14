@@ -1,3 +1,4 @@
+import {Roles} from "../../roles/model/roles";
 
 
 export interface UserLoginDetails {
@@ -21,13 +22,6 @@ export enum Title {
 }
 
 
-export interface Roles {
-  id: number;
-	name : string;
-  description : string;
-
-
-}
 export interface Name {
 
 	title: Title;
@@ -79,6 +73,7 @@ export class UserDetails {
 		//console.log("new user detail " + userDetails);
 		return userDetails;
 	}
+
 
 
 }
