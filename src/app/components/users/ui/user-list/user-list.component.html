@@ -7,9 +7,10 @@
   </div>
 </div>
 
-<div *ngIf="userLoaded">
+<div class="grouping" *ngIf="userLoaded">
 
   <div *ngFor='let userDetail of userDetails'>
+
     <app-user-summary [userDetail]='userDetail'>
     </app-user-summary>
   </div>
