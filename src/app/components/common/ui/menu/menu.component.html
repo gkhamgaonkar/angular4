@@ -5,37 +5,48 @@
         <div class="input-group custom-search-form">
           <input type="text" class="form-control" placeholder="Search...">
           <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
+            <button class="btn btn-default" type="button">
+              <i class="fa fa-search"></i>
+            </button>
+          </span>
         </div>
         <!-- /input-group -->
       </li>
       <li>
-        <a href="/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+        <a href="/">
+          <i class="fa fa-dashboard fa-fw"></i>
+          Dashboard
+        </a>
       </li>
       <li>
-        <a href="/users"><i class="fa fa-sitemap fa-fw"></i>User<span class="fa arrow"></span></a>
+        <a href="#"><i class="fa fa-sitemap fa-fw"></i>User-Admin<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
-
           <li>
-            <a (click)="addNewUser()">Add new user</a>
+            <a href="/users"><i class="fa fa-sitemap fa-fw"></i>Users
+              <span class="fa arrow"></span>
+            </a>
+            <ul class="nav nav-third-level">
+              <li>
+                <a (click)="addNewUser()">Add new user</a>
+              </li>
+            </ul>
+          <li>
+            <a href="/roles"><i class="fa fa-sitemap fa-fw"></i>Roles
+              <span class="fa arrow"></span>
+            </a>
+            <ul class="nav nav-third-level">
+              <li>
+                <a (click)="addNewRole()">Add new role</a>
+              </li>
+            </ul>
+            <!-- /.nav-second-level -->
           </li>
 
         </ul>
         <!-- /.nav-second-level -->
       </li>
 
-      <li>
-        <a href="/roles"><i class="fa fa-sitemap fa-fw"></i>User Roles<span class="fa arrow"></span></a>
-        <ul class="nav nav-second-level">
-          <li>
-            <a (click)="addNewRole()">Add new role</a>
-          </li>
-        </ul>
-        <!-- /.nav-second-level -->
-      </li>
+
     </ul>
   </div>
   <!-- /.sidebar-collapse -->
