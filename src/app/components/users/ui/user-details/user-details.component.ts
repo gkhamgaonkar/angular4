@@ -25,7 +25,8 @@ export class UserDetailsComponent implements OnInit {
   editPage: boolean;
   titles: Title[];
   roles : Roles[];
-  rolesSI: SelectItem[];
+  rolesSI
+    : SelectItem[];
   sex: Sex[];
   displayedColumns : String[];
   rolesLoaded : boolean = false;
@@ -115,14 +116,14 @@ export class UserDetailsComponent implements OnInit {
     let idx = 0 ;
     let found = false;
     for(let role of this.userDetail.roles){
+        if(role === roleToDelete){
+          found = true;
+        }
       if(!found) {
         idx++;
       }
-        if(role.name === roleToDelete.name){
-          found = true;
-        }
     }
-    this.userDetail.roles = this.userDetail.roles.splice(idx,1);
+    this.userDetail.roles.splice(idx,1);
   }
 
   updateUser(): void {

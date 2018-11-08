@@ -22,6 +22,11 @@ body {
 .grouping:after {
   clear: both;
 }
+
+.tab-padding{
+  padding-top: 1.5rem;
+}
+
 @media (min-width: 768px) {
   #page-wrapper {
     position: inherit;

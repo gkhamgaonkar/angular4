@@ -23,6 +23,7 @@ export class RolesListComponent implements OnInit {
   private getAllRoles() {
     this.rolesService.getAllRoles().then((userDetails => {
         this.roles = userDetails;
+        console.log(this.roles);
         this.rolesLoaded = true;
       }
     ));

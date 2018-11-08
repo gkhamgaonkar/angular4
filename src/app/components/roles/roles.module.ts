@@ -9,6 +9,7 @@ import {MatOptionModule, MatSelectModule, MatTableModule} from "@angular/materia
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
+import {TableModule} from 'primeng/table';
 
 
 const secondaryRoutes: Routes = [
@@ -24,7 +25,8 @@ const secondaryRoutes: Routes = [
     MatTableModule,
     HttpClientModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    TableModule
 
   ],
 

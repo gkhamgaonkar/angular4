@@ -14,8 +14,17 @@
       },
       "roles": [
         {
+          "name": "DATA_ENTRY",
+          "description": "Data entry operator"
+        },
+        {
           "name": "CONTENT_REVIEWER",
           "description": "Content reviewer"
+        },
+        {
+          "name": "ADMINISTRATOR",
+          "description": "admin",
+          "id": 1
         }
       ],
       "userSex": "MALE"
@@ -76,6 +85,29 @@
         "lastName": "cook"
       },
       "id": 4
+    },
+    {
+      "loginDetails": {
+        "userName": "user1",
+        "password": "pwd"
+      },
+      "roles": [
+        {
+          "name": "ADMINISTRATOR",
+          "description": "admin",
+          "id": 1
+        }
+      ],
+      "userSex": "MALE",
+      "userPhoto": null,
+      "dateOfBirth": null,
+      "name": {
+        "title": "Mrs",
+        "firstName": "asdf",
+        "middleName": "asdf",
+        "lastName": "asf"
+      },
+      "id": 5
     }
   ],
   "roles": [
