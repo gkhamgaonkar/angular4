@@ -22,8 +22,10 @@ import {MatTableModule, MatOptionModule, MatSelectModule} from "@angular/materia
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {LoggerService} from "./components/common/service/logger.service";
 import {ConsoleLoggerService} from "./components/common/service/console-logger.service";
-import {DropdownModule} from 'primeng/primeng';
+import {DataTableModule, DropdownModule, PaginatorModule} from 'primeng/primeng';
+import {AccordionModule} from 'primeng/accordion';
 import {RolesModule} from "./components/roles/roles.module";
+import {TableModule} from "primeng/table";
 
 
 @NgModule({
@@ -52,6 +54,10 @@ import {RolesModule} from "./components/roles/roles.module";
     MatTableModule,
     DropdownModule,
     CommonModule,
+    DataTableModule,
+    PaginatorModule,
+    TableModule,
+    AccordionModule,
 
     RouterModule.forRoot([
       {

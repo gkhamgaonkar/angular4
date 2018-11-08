@@ -4,105 +4,94 @@
   <div class="loader"></div>
 </div>
 
-<div *ngIf="userLoaded && userDetail" class="form-row  col-lg-6">
-  <div class="form-group">
-    <label>User Name</label>
-    <p class="form-control-static">{{userDetail.loginDetails.userName}}</p>
-  </div>
-  <div class="form-group">
-    <label for="idTitle">Title</label>
-    <select id="idTitle" *ngIf="editPage" class="form-control"
-            [(ngModel)]="userDetail.name.title">
-      <option *ngFor="let title of titles" [ngValue]="title">{{title}}</option>
-    </select>
-    <p *ngIf="!editPage" class="form-control-static">{{userDetail.name.title}}</p>
-  </div>
+<div *ngIf="userLoaded && userDetail" class="form-row  col-lg-6 ">
 
-  <div class="form-group ">
-    <label for="idfName">First Name</label>
-    <input *ngIf="editPage" id="idfName" class="form-control" type="text" [(ngModel)]="userDetail.name.firstName"
-           value={{userDetail.name.firstName}}/>
-    <p *ngIf="!editPage" class="form-control-static">{{userDetail.name.firstName}}</p>
-  </div>
-  <div class="form-group ">
-    <label for="idmName">Middle Name</label>
-    <input class="form-control" id="idmName" *ngIf="editPage" type="text" [(ngModel)]="userDetail.name.middleName"
-           value={{userDetail.name.middleName}}/>
-    <p *ngIf="!editPage" class="form-control-static">{{userDetail.name.middleName}}</p>
-  </div>
+    <p-accordion [multiple]="true" class="tab-padding">
+      <p-accordionTab header="User details" class="tab-padding" [selected]="true">
 
-  <div class="form-group ">
-    <label for="idmName">Last Name</label>
-    <input class="form-control" id="idLName" *ngIf="editPage" type="text" [(ngModel)]="userDetail.name.lastName"
-           value={{userDetail.name.lastName}}/>
-    <p *ngIf="!editPage" class="form-control-static">{{userDetail.name.lastName}}</p>
-  </div>
+        <div class="form-group">
+          <label>User Name</label>
+          <p class="form-control-static"><b>{{userDetail.loginDetails.userName}}</b></p>
+        </div>
+        <div class="form-group">
+          <label for="idTitle">Title</label>
+          <select id="idTitle" *ngIf="editPage" class="form-control"
+                  [(ngModel)]="userDetail.name.title">
+            <option *ngFor="let title of titles" [ngValue]="title">{{title}}</option>
+          </select>
+          <p *ngIf="!editPage" class="form-control-static">{{userDetail.name.title}}</p>
+        </div>
 
-  <div class="form-group">
-    <label for="idSex">Sex</label>
-    <select id="idSex" *ngIf="editPage" class="form-control"
-            [(ngModel)]="userDetail.userSex">
-      <option *ngFor="let userSex of sex" [ngValue]="userSex">{{userSex}}</option>
-    </select>
-    <p *ngIf="!editPage" class="form-control-static">{{userDetail.userSex}}</p>
-  </div>
+        <div class="form-group ">
+          <label for="idfName">First Name</label>
+          <input *ngIf="editPage" id="idfName" class="form-control" type="text" [(ngModel)]="userDetail.name.firstName"
+                 value={{userDetail.name.firstName}}/>
+          <p *ngIf="!editPage" class="form-control-static">{{userDetail.name.firstName}}</p>
+        </div>
+        <div class="form-group ">
+          <label for="idmName">Middle Name</label>
+          <input class="form-control" id="idmName" *ngIf="editPage" type="text" [(ngModel)]="userDetail.name.middleName"
+                 value={{userDetail.name.middleName}}/>
+          <p *ngIf="!editPage" class="form-control-static">{{userDetail.name.middleName}}</p>
+        </div>
 
-  <div class="form-group" *ngIf="rolesLoaded">
-    <label for="idAddRole">Add Role</label>
-    <p-dropdown id="idAddRole" *ngIf="editPage" class="form-control">
-      <option *ngFor="let role of roles" [ngValue]="role">{{role.description}}</option>
-    </p-dropdown>
-    <!--<mat-form-field>-->
-      <!--<mat-select [(value)]="selectedRole">-->
-        <!--<mat-option>None</mat-option>-->
-        <!--<mat-option *ngFor="let role of roles" [value]="role">{{role.description}}</mat-option>-->
-      <!--</mat-select>-->
-    <!--</mat-form-field>-->
+        <div class="form-group ">
+          <label for="idmName">Last Name</label>
+          <input class="form-control" id="idLName" *ngIf="editPage" type="text" [(ngModel)]="userDetail.name.lastName"
+                 value={{userDetail.name.lastName}}/>
+          <p *ngIf="!editPage" class="form-control-static">{{userDetail.name.lastName}}</p>
+        </div>
 
-    <button *ngIf="editPage" type="button" (click)="addRoleToUser()" class="btn btn-primary">Add role</button>
-  </div>
+        <div class="form-group">
+          <label for="idSex">Sex</label>
+          <select id="idSex" *ngIf="editPage" class="form-control"
+                  [(ngModel)]="userDetail.userSex">
+            <option *ngFor="let userSex of sex" [ngValue]="userSex">{{userSex}}</option>
+          </select>
+          <p *ngIf="!editPage" class="form-control-static">{{userDetail.userSex}}</p>
+        </div>
 
+      </p-accordionTab>
+      <p-accordionTab header="Roles" class="tab-style" [selected]="true">
 
-  <div class="form-group">
-    <label for="idRole">Role</label>
+        <div class="form-group" *ngIf="rolesLoaded">
+          <label *ngIf="editPage" for="idAddRole">Add Role</label>
 
-    <div id="idRole" class="example-container mat-elevation-z8">
-      <mat-table #table [dataSource]="userDetail.roles">
+          <p-dropdown id="idAddRole" *ngIf="editPage" [autoWidth]="false" [options]="rolesSI" [(ngModel)]="selectedRole"
+                      editable="true" placeholder="Select a role"></p-dropdown>
 
-        <ng-container matColumnDef="name">
-          <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
-        </ng-container>
+          <button *ngIf="editPage" type="button" (click)="addRoleToUser()" class="btn btn-primary "> Add role</button>
+        </div>
+        <div class="form-group">
+          <label for="idRole">Role</label>
+          <p-table id="idRole" [value]="userDetail.roles">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th *ngIf="editPage" >Action</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-role>
+              <tr>
+                <td>{{role.name}}</td>
+                <td>{{role.description}}</td>
+                <td *ngIf="editPage"><a (click)="deleteRole(role)">Remove role</a></td>
+              </tr>
+            </ng-template>
+          </p-table>
+          <div *ngIf="(!userDetail.roles || !userDetail.roles.length)">
+            <p> No roles found!!! </p>
+          </div>
+        </div>
+      </p-accordionTab>
+      <div class="form-group tab-padding ">
+        <button *ngIf="editPage" type="button" (click)="updateUser()" class="btn btn-primary  ui-lg-offset-6  ui-lg-3 ">Update User</button>
+        <button  type="button" (click)="backToList()" class="btn btn-primary ui-lg-3">Back to list</button>
+      </div>
+    </p-accordion>
 
+</div>
 
-        <ng-container matColumnDef="description">
-          <mat-header-cell *matHeaderCellDef> Description</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.description}}</mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef="action" *ngIf="editPage">
-          <mat-header-cell *matHeaderCellDef> Action</mat-header-cell>
-          <mat-cell *matCellDef="let element"><a (click)="deleteRole(element)">Remove role</a>
-          </mat-cell>
-        </ng-container>
-
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-      </mat-table>
-
-    </div>
-
-
-
-    <div *ngIf="(!userDetail.roles || !userDetail.roles.length)">
-      <p> No roles found!!! </p>
-    </div>
-
-
-    <div class="form-group">
-      <button *ngIf="editPage" type="button" (click)="updateUser()" class="btn btn-primary">Update User</button>
-      <button *ngIf="editPage" type="button" (click)="backToList()" class="btn btn-primary">Back to list</button>
-    </div>
-
-  </div>
-  </div>
+<div style="clear:both">
+</div>

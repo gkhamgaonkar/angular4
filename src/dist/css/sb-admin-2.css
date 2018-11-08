@@ -49,6 +49,10 @@ body {
 .navbar-top-links .dropdown-menu li:last-child {
   margin-right: 0;
 }
+
+*tab-style{
+  padding-bottom: 1.5rem;
+}
 .navbar-top-links .dropdown-menu li a {
   padding: 3px 20px;
   min-height: 0;

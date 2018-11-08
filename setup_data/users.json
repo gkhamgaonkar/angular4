@@ -16,15 +16,6 @@
         {
           "name": "CONTENT_REVIEWER",
           "description": "Content reviewer"
-        },
-        {
-          "name": "DATA_ENTRY",
-          "description": "Data entry operator"
-        },
-        {
-          "name": "ADMINISTRATOR",
-          "description": "admin",
-          "id": 1
         }
       ],
       "userSex": "MALE"

@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, ViewEncapsulation} from "@angular/core";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {Sex, UserDetails, Title} from "../../model/userdetails";
 import "rxjs/add/operator/switchMap";
@@ -7,11 +7,14 @@ import {UserService} from "../../service/user.service";
 import {RolesService} from "../../../roles/service/roles.service";
 import {DropdownModule} from 'primeng/dropdown';
 import {Roles} from "../../../roles/model/roles";
+import {TableModule} from 'primeng/table';
+import {SelectItem} from "primeng/api";
 
 
 
 @Component({
   selector: 'app-user-details',
+  encapsulation: ViewEncapsulation.None,
   templateUrl: './user-details.component.html',
   styleUrls: ['./user-details.component.css']
 })
@@ -22,6 +25,7 @@ export class UserDetailsComponent implements OnInit {
   editPage: boolean;
   titles: Title[];
   roles : Roles[];
+  rolesSI: SelectItem[];
   sex: Sex[];
   displayedColumns : String[];
   rolesLoaded : boolean = false;
@@ -35,8 +39,14 @@ export class UserDetailsComponent implements OnInit {
 
   private getAllRoles() {
     this.rolesService.getAllRoles().then((roles => {
-        this.roles = roles;
 
+
+        this.roles = roles;
+        this.rolesSI = [];
+        this.rolesSI.push({label: "Please select" , value: null});
+        for (let role of roles) {
+          this.rolesSI.push({label: role.description , value:role});
+        }
         this.rolesLoaded = true;
       }
     ));

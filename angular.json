@@ -25,6 +25,9 @@
               "src/vendor/bootstrap/css/bootstrap.min.css",
               "src/dist/css/sb-admin-2.css",
               "src/dist/css/sb-admin-2.min.css",
+              "src/vendor/primeicons/primeicons.css",
+              "src/vendor/primeng/resources/primeng.min.css",
+              "src/vendor/primeng/resources/themes/nova-light/theme.css",
               "src/vendor/metisMenu/metisMenu.min.css",
               "src/vendor/font-awesome/css/font-awesome.min.css"
             ],
@@ -80,6 +83,9 @@
               "src/vendor/bootstrap/css/bootstrap.min.css",
               "src/dist/css/sb-admin-2.css",
               "src/dist/css/sb-admin-2.min.css",
+              "src/vendor/primeicons/primeicons.css",
+              "src/vendor/primeng/resources/primeng.min.css",
+              "src/vendor/primeng/resources/themes/nova-light/theme.css",
               "src/vendor/metisMenu/metisMenu.min.css",
               "src/vendor/font-awesome/css/font-awesome.min.css"
             ],
